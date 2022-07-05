@@ -10,7 +10,8 @@
 ```
 1. 상위 경로(graduationProject) -> 업로드 할 파일들이 속한 경로(graduationProject/DAU_MyClub)로 변경  
 2. 해당작업 이 후, 성공적으로 git add 및 commit을 통한 push 수행  
-```
+```  
+
 1.  
 ![image](https://user-images.githubusercontent.com/49461207/177387580-50701f8c-0d2f-4fc3-9fed-c85cdf00ae88.png)  
 2.  
