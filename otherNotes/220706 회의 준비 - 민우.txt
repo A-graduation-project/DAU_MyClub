@@ -1,0 +1,10 @@
+220706 회의 준비
+
+백준
+- javascript(node.js)로 문제 풀기 / github에 기록 / 1일 1문제
+- typescript(nomad coder) 공부 중 -> react도 공부 예정
+- js로 웹페이지 만들기 전체적으로 따라해보기(유튜브 - node.js 로그인 구현)
+
+- Github 사용법
+https://www.youtube.com/watch?v=YFNQwo7iTNc
+https://www.youtube.com/watch?v=FN9nOLqyNEc&list=PLSK4WsJ8JS4cQ-niGNum4bkK_THHOizTs&index=11&ab_channel=%EC%9A%B0%EB%A6%AC%EB%B0%8B_woorimIT
