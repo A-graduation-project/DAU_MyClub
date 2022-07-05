@@ -8,3 +8,5 @@
 - Github 사용법
 https://www.youtube.com/watch?v=YFNQwo7iTNc
 https://www.youtube.com/watch?v=FN9nOLqyNEc&list=PLSK4WsJ8JS4cQ-niGNum4bkK_THHOizTs&index=11&ab_channel=%EC%9A%B0%EB%A6%AC%EB%B0%8B_woorimIT
+
++ 각자 Git 혹은 Javascript 공부한 것을 올리는 폴더
