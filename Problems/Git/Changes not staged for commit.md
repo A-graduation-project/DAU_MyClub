@@ -8,10 +8,10 @@
 
 ### 해결
 ```
-상위 경로 -> 업로드 할 파일들이 속한 경로로 변경  
-![image](https://user-images.githubusercontent.com/49461207/177387580-50701f8c-0d2f-4fc3-9fed-c85cdf00ae88.png)  
+상위 경로(graduationProject) -> 업로드 할 파일들이 속한 경로(graduationProject/DAU_MyClub)로 변경  
 이 후, 성공적으로 git add 및 commit을 통한 push 수행  
-![image](https://user-images.githubusercontent.com/49461207/177387676-986aced4-0d6c-441b-89a8-05c12d92feea.png)
 ```
+![image](https://user-images.githubusercontent.com/49461207/177387580-50701f8c-0d2f-4fc3-9fed-c85cdf00ae88.png)
+![image](https://user-images.githubusercontent.com/49461207/177387676-986aced4-0d6c-441b-89a8-05c12d92feea.png)  
 
 참고: https://dubaiyu.tistory.com/8 [프론트엔드 여행하려다 풀스택:티스토리]
