@@ -1,6 +1,6 @@
-# Changes not staged for commit 문제해결  
+# Changes not staged for commit
 
-### 아래와 같은 문제 발생  
+### 파일 수정 및 폴더 추가를 하고서 git add . 이후 status를 확인하니 아래와 같은 문제 발생  
 ![image](https://user-images.githubusercontent.com/49461207/177387188-b8e6389f-3462-4bcf-a5b2-bfc5f034f4db.png)
 
 ![image](https://user-images.githubusercontent.com/49461207/177387472-3aa12d9e-130d-4d5b-bb1a-78747dcc289a.png)
