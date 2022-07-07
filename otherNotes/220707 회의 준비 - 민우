@@ -1,0 +1,40 @@
+220707 회의 준비 - 민우
+- 상세 기능 정의
+ - 디스이즈와 비슷하게 가기 ( why? 친숙함때문 - 동아대학교 학생들이 사용할 서비스이기 때문)
+ - 핵심 기능 
+  - 동아리 관리 및 홍보 전용 서비스(웹/앱)
+   - 동아리 관리
+    - 동아리 실시간 공지 서비스
+    - 동아리 그룹 챗
+    - 동아리 연혁 페이지(insta 같은 페이지 직접 제작 혹은 insta로 링크)
+   - 동아리 홍보 (간단한 홍보 양식 제공) 
+    - 동아리 홍보 페이지
+    - 동아리 행사 안내 페이지
+ - 선택적 로그인
+  - 비로그인시 확인 가능한 옵션
+   - 동아리 홍보 페이지
+   - etc...
+  - 로그인시
+   - 동아리 관리자
+   - 일반 유저
+
+
+참고 모델
+- 페이스북 (페이스북 페이지 - 각 동아리 페이지)
+- 밴드 ( 사회 동아리 관리 및 홍보 용도의 어플 )
+- 인스타그램 ( 사용자 맞춤&간편 UI )
+- etc...
+
+- project 마음가짐 이야기
+
+- 220706 내용 다시 이야기
+백준
+- javascript(node.js)로 문제 풀기 / github에 기록 / 1일 1문제
+- typescript(nomad coder) 공부 중 -> react도 공부 예정
+- js로 웹페이지 만들기 전체적으로 따라해보기(유튜브 - node.js 로그인 구현)
+
+- Github 사용법
+https://www.youtube.com/watch?v=YFNQwo7iTNc
+https://www.youtube.com/watch?v=FN9nOLqyNEc&list=PLSK4WsJ8JS4cQ-niGNum4bkK_THHOizTs&index=11&ab_channel=%EC%9A%B0%EB%A6%AC%EB%B0%8B_woorimIT
+
++ 각자 Git 혹은 Javascript 공부한 것을 올리는 폴더
