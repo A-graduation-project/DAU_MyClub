@@ -1,0 +1,68 @@
+220707 javascript 공부
+*API 설계 기본(UMC udemy 강의)
+영상 - https://www.udemy.com/course/comgongbro_server_clonecoding/learn/lecture/31406730#overview
+참고 - https://github.com/udemy-comgongbro/udemy_server_practice_nodejs
+
+rest api 의 기본 구성 원리
+참고 - https://poiemaweb.com/js-rest-api
+
+querystring <-> parameter 차이?
+
+*바닐라 JS 강의
+#1
+ - real time stuff : socket.io
+ - ml5.js : machine learning
+ - replit.com
+#2
+<브라우저는 html을 열고 html은 css와 js를 가져온다.>
+2-1 Basic Data Types
+ - number, text, string
+2-2 Variables
+ - const
+ - variableName : camelCase <-> snake_case(python)
+2-3 const and let
+ - const(상수) : 값이 바뀔 수 없다 (default)
+ - let(변수) : 값이 바뀔 수 있다 (when further update needed)
+ - var(변수) : 언제든 변경 가능 (사용 지양)
+2-4 Booleans
+ - true or false
+ - undefined(variable has no values) or null(has nothing - empty)
+2-5 Arrays
+ - const days = [1, 2, false, ture, undefined, "text", me]; 
+  days[x] / 인덱스를 이용해 각 아이템에 접근 가능
+2-6 Objects
+ - console.log() // 변수.메소드 
+  - object를 const 로 선언하더라도 안(메소드 내부 값)은 변경 가능 <-> console 자체를 변경은 불가
+2-7 Functions part One
+ - player.points() // points()
+2-8 Functions part Two
+ - function plus(a, b){
+    console.log(a + b) ;
+   };
+plus(8, 60);
+2-9 Recap
+2-10 Recap II
+const calculatior = {
+plus :  function(a, b) {
+console.log(a+b);
+},
+minus : fucntion(a, b) {
+console.log(a-b);
+},
+...
+console.log => return 으로 대체(2-11)
+2-11 Returns
+2-12 Recap
+ - return은 exit()를 포함
+2-13 Conditionals
+ - console.log(typeof variable)
+ - const age = 15;
+   age = parseInt(age); / 형변환
+2-14 Conditionals part Two
+ - console.log(isNaN(age)); -> false
+2-15 Conditionals part Three
+ - &&, ||
+2.16 Recap
+ - &&, ||
+ - isNaN(x) - if number, return true or false 
+ - ||(or), &&(and)
