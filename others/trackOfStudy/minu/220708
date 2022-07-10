@@ -1,0 +1,80 @@
+220708 FRI 공부기록
+
+*Nomad Coders - Vanilla JS
+#3.0 The Document Object
+ - document => html 파일 호출
+ - document.title, document.body ...
+
+#3.1 HTML in Javascript
+ - document.getElementById("id");
+
+#3.2 Searching for Elements
+ - document.querySelector(".hello h1"); // 첫번째 것만 가져옴 // css처럼 가져옴
+ - document.querySelector(".hello h1:first-child"); // 해당하는 특정 부분만 가져옴
+ - document.querySelectorAll(".hello h1"); // 해당하는 모두를 가져옴
+ - document.getElementsByClassName("class");
+
+#3.3 Events
+ - const title = document.querySelector(".hello h1");
+ function handleTitleClick() {
+console.log("title was clicked");
+}
+
+title.addEventLisnter("click", handleTitleClick); == title.onclick = handTitleClick;
+
+#3.4 Events Part  
+ - Ways to find out how to use bit more of events
+
+#3.5 Events More
+ - window.addEventListner("resize", handleWindowResize);
+
+#3.6 CSS in Javascript
+function handleTitleClick() {
+const currentColor = h1.style.color;
+let newColor;
+if (currentColor === "blue") {
+newColor = "tomato";
+} else {
+newColor = "blue";
+}
+h1.style.color = newColor;
+}
+h1.addEventListener("click", handleTitleClick);
+
+step1. find element
+step2. listen to the event
+step3. react to the evnet
+
+#3.7 CSS in Javascript part Two
+ - style.css 파일에 표현하기
+ .active {
+color : tomato;
+}
+ - app.js
+function handleTitleClick() {
+h1.className = "clicked"
+// js 코드에서 반복 사용될 가능성이 있는 "clicked" class는 하나의 변수로 만들어주는 것이 추후 작업 중 mistyping 때 찾기 용이하다.
+// ex) const clickedClass = "clicked"
+
+#3.8 CSS in Javascript part Three
+
+const clickedClass = "clicked";
+
+fucntion handleTitleClick(){
+if (h1.classList.contains(clickedClass)){
+h1.classLkist.remove(clickedClass);
+} else {
+h1.classList.add(clickedClass);
+}
+}
+
+h1.addEventListener("click", handleTitleClick);
+
+->
+
+(const clickedClass = "clicked";) // 필요 X
+
+function handleTitleClick() {
+h1.classList.toggle("clicked"); // toggle function 하나로 여러줄의 코드를 대체
+}
+h1.addEventListener("click", handleTitleClick);
