@@ -1,0 +1,105 @@
+220713 공부
+
+*Vanilla JS
+#5.0 Intervals
+- 폴더의 구분 / css - js 폴더
+- clock funtion 구현
+ - setInterval(func, 시간)
+
+#5.1 Timeouts and Dates
+<js>
+const clock = document.querySelector("h2#clock");
+
+function getClock() {
+const date = new Date();
+clock.innerText = `${date.getHours()}:${date.getMinutes()}:${date.getSeconds}`
+}
+
+getClock();
+
+setInterval(getClock, 1000); // getClock 함수를 1초 뒤 실행
+
+#5.2 PadStart
+- xx:xx:x 처럼 나타나는 시간을 
+xx:xx:0x 로 수정을 하고싶다.
+ => x.padStart(); 함수 활용 + padEnd도 존재
+ => "hello".(20, "x"); => "xxxxxxxxxxxxxxxhello"
+ => const hours = String(date.getHours()).padStart(2, "0"); // Number 로 return 되는 date를 String으로 문자열 처리
+   + const minutes = String(date.getMinutes()).padStart(2, "0");
+      clock.innerText = `${hours}:${minutes}:${seconds}`;
+
+#5.3 Recap
+복습
+
+* UMC 설계
+- curl
+# POSTMAN(https://www.youtube.com/watch?v=0veQoK9V07k&ab_channel=%EC%9A%B0%EB%A6%AC%EB%B0%8B_woorimIT)
+ - 사용이유
+  1. REST API 설계 개발, 테스팅을 할 수 있는 GUI 툴로 개발 생산성을 높여주는 프로그램
+  2. 팀원들 간의 공유 기능
+  3. 클라이언트(프론트 엔드)가 아직 개발되지 않았다면 포스트맨이라는 프로그램으로 쉽게 테스트
+
+# baseResponse 오류 코드 넘버
+  - 2000:
+  - 3000:
+  - 4000:
+
+# Port Forwarding & AWS
+- Port Forwarding ; 외부 IP(도메인 등)를 통해 접속한 클라이언트가 특정 포트를 통하여 요청을 하게 되면 내부 IP로 이를 보내 처리하는 것
+ = 노트북과 공유기 사이에 길을 만들고 이정표를 달아주는 것
+- AWS ; Amazon web service ec2 
+ 매번 port forwarding을 위한 설정이 번거롭고 복잡하기에 아마존에서 제공하는 web service 중 cloud computing service를 이용할 것
+ - protocol ; 각 식당마다의 주문 방식이 정해진 것처럼 컴퓨터와 컴퓨터 사이에서도 통신 방식이 정해져 있는데 이에 관한 규약을 protocol이라 한다.
+  - http ; 서버와 클라이언트가 인터넷 상에서 데이터를 주고받기 위한 protocol
+  - https ; http + 보안
+  - mysql ; 
+  - ssh ; 네트워크 상 다른 컴퓨터에 로그인 혹은 원격 시스템에서 사용하는 protocol
+  - ftp ; 파일 전송 protocol
+  - sftp ; ftp + 보안
+ - IP & Port
+  - 도로명 주소 = 도메인
+  - 위도, 경도 = IP
+   - Port // 직원용 문(Port), 손님용 문(Port) 등 용도에 따라 다른 Port가 존재
+   - ex) http: 80, https: 443 ...
+
+# RDS ; 여러 개의 서버가 하나의 데이터베이스를 구축하는 것
+
+# API 개념
+
+# 프레임워크 구조
+
+# 로그관리 morgan, winston
+
+# middleware
+
+# 로그인 유지방식
+ - http(stateless 기억 x)
+
+ - 방식 1) 쿠키와 세션
+ 세션 ; 서버의 storage(저장소) 이름
+ 쿠키 ; 클라이언트의 storage 이름
+ 로그인 성공 시 서버에서 클라이언트에게 토큰 값, ID를 제공(= 세션 ID),
+ 클라이언트는 회원용 API에 접근할 때 이 세션 ID를 제출하여 사용
+ 
+  - 장점 : 구현 용이
+  - 단점 : 세션ID 노출 시 보안 취약
+ 
+ - 방식 2) jwt(json web token) - 모듈
+ ; 클라이언트가 id, pw를 서버에게 보내 유효할 경우,
+ 해당 정보들을 바탕으로 token을 만들어 클라이언트에게 보냄
+ 클라이언트는 넘겨 받은 jwt 를 사용하여 회원 API 호출 가능
+ 
+ jwt는 payload - 사용자의 정보, 헤더 - 인코딩 방식, 시그니처 - payload, 헤더를 암호화 한 값으로 구성
+ 해당 방식 또한 보안이 취약하므로 https를 필수적으로 적용시켜야 함
+ 
+ - 방식 3) OAuth
+ 사용자에게 한정된 권한만 제공 - third party(타 앱에서 카카오톡 로그인 등)
+ ; 클라이언트가 id, pw, 권한리스트를 제출하면 서버는 token을 발급, 클라언트는 API 사용시 해당 token을 함께 제출
+ 
+ - 장점 ; 보안이 좋음
+ - 단점 ; 로직이 어렵고 복잡
+
+* UMC 재훈님 코드 플로우 설명
+- controller ; 유효성 확인만
+- token payload {id, isExpert : true or false}
+- jwt - passport.js
