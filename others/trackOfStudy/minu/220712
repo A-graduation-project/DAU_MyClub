@@ -1,0 +1,68 @@
+220712 Tue 공부기록
+
+*Nomad Coders - Vanilla JS
+#4.0 Input Values
+- <html>
+div
+html input - login button
+div
+- <js>
+const loginForm = document.getElementById("login-form");
+const loginButton = loginForm.querySelector("login-button");
+
+
+#4.1 Form Submission
+- checking validity of input values
+- <form>을 이용하면 html의 required maxlength 등의 기능을 이용할 수 있다
+
+#4.2 Events
+- button은 키보드 Enter와 마우스 Click 두 가지 동작 모두로 수행 가능
+-> addEventListener를 "click"이 아니라 "submit"으로 
+
+- 브라우저는 기본적으로 submit시 새로고침을 하도록 설정
+function onLoginSubmit(event) {
+event.preventDefalut();
+console.log(event);
+}
+- 기본 동작을 못하도록 설정
+
+#4.3 Events Part Two
+link alert
+addEventListener(~) 라는 함수가 직접 함수를 실행 시키는 것이 아니라 요청하는 것일뿐, 동작은 브라우저(JS) 관장한다.
+event.preventDefalut(); // 작성 시 링크로의 이동(새로고침) 동작을 막는다. // path a > body> html. > document > Window  
+
+#4.4 Getting Username
+- css hidden 활용
+<css>
+.hidden {
+display : none;
+}
+
+<html>
+<h1 id ~ class="hidden">
+
+<js>
+const greeting = document.querySelector("#greeting");
+
+const HIDDEN_CLASSNAME = "hidden" // string만 저장하는 변수는 UPPER CASE로 // hidden이 2회 이상 사용되기에 변수로 설정
+
+fucntion onLoginSubmit(event){
+event.preventDefault();
+loginForm.classList.add(HIDDEN_CLASSNAME); // input 서브밋 시 HIDDEN_CLASSNAME 동작 수행 // loginForm에 해당하는 정보 모두 "hidden"
+const username = loginInput.value;
+greeting.innerText = "Hello " + username; -> `Hello ${username}`; // 백틱 사용 권장
+greeting.classList.remove(HIDDEN_CLASSNAME); // greeting 에 해당하는 구문 "hidden" remove() 수행
+
+#4.5 Saving Username 
+- recap 
+- value 저장하기 = localStrorage ( key - value ) // miniDB
+ - localStorage.setItem("key", "value");
+ - "".getItem("key"); => value 
+ - "".removeItem("key");
+// refresh => info gone away
+
+#4.6 Loading Username
+- refresh 해도 localStorage에 정보 남기기
+
+#4.7 Super Recap
+- recap of #4
