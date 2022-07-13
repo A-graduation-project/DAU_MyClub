@@ -1,0 +1,18 @@
+- 웹앱 만들기 ; 조코딩(https://www.youtube.com/watch?v=GyXLa-0R_S0&ab_channel=%EC%A1%B0%EC%BD%94%EB%94%A9JoCoding)
+- 네이트브 앱 vs 크로스 플랫폼 앱 vs 하이브리드 앱 ; 노마드 코더(https://www.youtube.com/watch?v=ksz_mSninEY&ab_channel=%EB%85%B8%EB%A7%88%EB%93%9C%EC%BD%94%EB%8D%94NomadCoders)
+
+하이브리드 앱 ; 
+1. React-Native(JS 기반)
+2. Flutter(Dart 기반)
+3. 웹 뷰 - 앱 화면에 웹사이트가 들어간 것 V
+ - 스윙2앱 활용
+
+ * 정리 1. 웹 뷰로 프로토타입 제작 해보기
+          2. 부족한 부분이 있다면 React-Native 사용 - 제작
+          3. UI는 최대한 디스이즈와 비슷하게 가져갔으면 좋겠다.
+          4. 디스이즈 팀에 조언 문의 필요
+- UI 예시
+ - 디스이즈
+ - 베스트 웹 디자인 예시 몇가지
+
+- 상세 기능 / ..!?
