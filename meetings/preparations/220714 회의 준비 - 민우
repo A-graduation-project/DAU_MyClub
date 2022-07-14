@@ -1,0 +1,24 @@
+220714 프로젝트 회의 준비
+
+- 조코딩(https://www.youtube.com/watch?v=8eIQNfPbRms&list=PLU9-uwewPMe2-vtJAgWB6SNhHcTjJDgEO&index=7)
+
+- React Native의 모범 예 ; 토스
+
+ - option1. 앱의 모든 flow를 웹으로
+ ; 앱을 동작시킬 때마다 항상 최신 리소스를 다운로드 해야하므로 네트워크 환경에 크게 의존적
+ ; 성능적인 한계
+ - option2. cross flatform 제작
+  (1) Flutter
+   - 공식 라이브러리 good(API 다양)
+   - 높은 학습 비용(dart)
+  (2) React Native
+   - 항상 최신 기능을 MS사의 Codepush 서버를 활용하여 제공 가능 ( 스타트업에 매우 유리 )
+   - 빈약한 공식 라이브러리 생태계(navigation 라이브러리 등)
+   - 높은 퍼포먼스를 기대한다면 Native도 학습 필요
+
+- 학습용 강의
+노마드코더 React(https://nomadcoders.co/react-for-beginners)
+노마드코더 React-Native(https://nomadcoders.co/react-native-for-beginners)
+
+**가장 중요한 점
+- 디스이즈 팀에 질문 정리 & 컨택해보는게 가장 좋은 방법이라 생각 듦
