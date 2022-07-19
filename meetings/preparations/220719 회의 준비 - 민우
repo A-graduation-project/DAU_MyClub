@@ -1,0 +1,22 @@
+220719 프로젝트 회의 준비
+
+- 민우 & 우성 공부 계획
+ 1. React.js(https://nomadcoders.co/react-for-beginners) // 바닐라 JS로 크롬앱 만들기 선행 필수 // 1주일(1일 2챕터씩 - 14챕터)
+ 2. React-Native.js // 2일
+ 3. 실전형 리액트 Hooks 10개 // 1일
+ 4. Typescript // 2일
+ 5. UMC 설계 강의 // 3-4일?
+ + Node.js, DB 등 필요에 따른 공부 // DB - Sequelize 사용하는건? 장단점 블로그 참조 (https://mingoogle.tistory.com/12) - DB 작업을 쉽게 할 수 있도록 도와주는 라이브러리(초보자에게 유리한 방법) ORM
+ + 채팅 - socket.io
+
+- 앞으로의 방향
+ // 우리 서비스의 세부 사항에 대한 논의
+ // 서비스 설계 구조(REST API포함)에 대한 이해 필요 - 작업 방식, 각 API별 설계 - 연결 구조, MVC 패턴이 무엇인지 등
+ // DB 설계
+ // 특이사항
+
+- 책 추천
+ - Do it 리액트 네이티브 앱 프로그래밍(react & react-native 병행 설명)
+ - 빠른 모바일 앱 개발을 위한 React Native(react-native 치중)
+ - windows 에서 ios 개발 - expo
+ // 참고 블로그(reactNative) / https://iworldt.tistory.com/27
