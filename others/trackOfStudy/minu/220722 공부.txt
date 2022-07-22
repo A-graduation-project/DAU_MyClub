@@ -2,6 +2,74 @@
 * 백준 코테 1문제
 
 * React
+#2 The basics of React
+
 #2-1 Before React
 -  javascript without <React>
 - import react & react-dom
+
+#2-2 Our First React Element
+- React Rule 1 ; HTML을 페이지에 직접 작성하지 않는다.
+
+#2-3 Evnets in React
+- HTML, Function을 한번에 가능하게끔 하는 것! 그것이 React!
+
+#2-4 Recap
+- import ReactJS(interactivity power-house), React-DOM(react element -> html)
+- 변수 선언하며 바로 function 까지 등록 가능**
+
+#2-5 JSX
+- createElement 대체하기(JSX)
+; Javascript 를 확장한 문법
+- 태그
+- props(property) ex. style, onclick ...
+- content
+
++ 브라우저가 JSX를 이해할 수 있게 tool(변환기) 설치 필요
+-> !! babel !! // <script src="~babel", <script type="text/babel"> 추가
+
+#2-6 JSX part two
+- Title, Button 을 functionise 한다
+- 이들을 Container 안 <div> 에
+<Title />
+<Button /> 
+과 같이 넣어준다.
+
+* 컴포넌트의 첫 글자는 반드시 대문자
+* 소문자이면 이를 HTML 태그로 간주하게 됨
+// JSX 컴포넌트 - 첫자 대문자
+// HTML 태그 - 소문자
+
+- 컴포넌트를 어떻게 다른 컴포넌트 안에 넣는지 배움
+
+
+#3 State
+#3.0 Understanding State
+- State ; 데이터가 저장되는 곳
+- Bad, Professional way of using React JS
+- **React JS는 Click 시 count 를 하며 <숫자>만을 Update!!
+
+#3.1 setState part one
+- render()의 중복사용을 방지하기 위해 코드 수정 
+// React.js 에서 제공하는 State의 도움으로 reRendering하기
+
+- const data = React.useState;
+- *little grammar*
+const food = ["tomato", "potato"]
+const [myFavFood, mySecondFavFood] = food;
+
+#3.2 setState part two
+- why do we need modifier?
+=> to update my counter + to get rerendering done
+
+#3.3 Recap
+- React 컴포넌트 안에서 어떻게 데이터를 바꾸는지
+- React가 화면을 어떻게 refresh(reRendering) 하는지
+=> *데이터가 바뀔 때마다 컴포넌트를 리렌더링하고 UI를 refresh하여 제공*
+=> modifier 함수로 state를 바꿀 때, 컴포넌트 전체가 재생성
+=> HTML을 완전히 대체함
+// state 값이 바뀌면, 새로운 값을 가지고 컴포넌트가 리렌더링 된다.
+
+#3.4 State Functions
+- 사용자들의 input을 어떻게 얻는지
+- form을 만들었을 때, state 는 어떤식으로 동작하는지
