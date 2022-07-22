@@ -1,0 +1,7 @@
+220720 공부기록
+
+* ReactJS로 영화 웹 서비스 만들기 
+#1- 2.0
+intro
+
+#2.1 Before React

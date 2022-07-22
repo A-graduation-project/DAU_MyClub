@@ -1,0 +1,8 @@
+220716 공부기록
+
+*Vanilla JS
+To Do list
+#7.0 Setup
+- form ; submit 이벤트를 포함 / default ; 새로고침 / event.prventDefault(); 로 제어
+
+#7.1 Adding Todos

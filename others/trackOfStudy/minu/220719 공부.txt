@@ -1,0 +1,102 @@
+220719 공부기록
+
+* API란 ; https://www.youtube.com/watch?v=ckSdPNKM2pY&ab_channel=%EC%BD%94%EB%94%A9%EC%95%A0%ED%94%8C
+
+* Vanilla JS
+#7-1 Adding Todos
+#7-2 Deleting Todos
+- function deleteToDo(event){
+const li = event.target.parentElement; // event.target = 클릭된 html element(button) // .parentElement = li(해당 라인) 
+li.remove(); // 
+}
+
+button.addeventLinster("click", deleteToDo);
+
+#7-3 Saving Todos
+- localStorage
+- array & push()
+
+const toDos = [];
+
+function saveToDos() {
+localStorage.setItem("todos", JSON.stringify(toDos));
+
+#7-4 Loading Todos part One
+- JSON.Stringify <-> JSON.parse(string)
+
+//
+function sayHello(item) {
+console.log("this is the turn of ", item);
+}
+
+const TODOS_KEY = "todos";
+const savedTodos = localstorage.getItem(TODOS_KEY);
+if (savedToDos !== null) {
+const paresedToDos = JSON.parse(savedToDos);
+parsedTodos.forEach(sayHello);
+}
+//
+여러 function을 만드는 대신 짧은 코드로 변경 가능
+
+parsedTodos.forEach((item) => console.log("this is the turn of ", item));
+
+#7-5 Loading Todos part Two
+- let toDos = []; // 새로고침 할때마다 기존의 li들이 사라지는 문제 해결
+ toDos = parsedToDos;
+
+#7-6 Deleting Todos pare One // delete를 update 시키기
+- 각각의 li에 random한 id 주기
+
+const newTodoObj =  {
+text:newTodo,
+id:Date.now(),
+};
+
+#7-7 Deleting Todos part Two // 
+- [1,2,3,4].filter(sexyFilter) // 배열의 각각 1, 2, 3, 4 에 대해 sexyFilter 함수를 호출하여 filter 실행 // ex. sexyFilter(1..4) // sexyFilter(1) 이 true 면 1을 리턴, false면 제외
+
+function sexyFilter(){return true}
+function sexyFilter(item){return !== 3} // 3이 아니면 true를 반환
+[1,2,3,4,5].filter(sexyFilter); // [1,2,4,5] 를 반환
+
+#7-8 Deleting Todos part Three
+- toDos = toDos.filter((toDo) => toDo.id !== li.id); // toDo.id 가 li.id 와 일치하지 않으면 return true
+** map <-> filter 차이 잊지말자@! // map은 콜백함수가 적용된 새 요소, filter는 조건문을 만족한 요소들을 반환(delete 에 사용)
+
+#8.0 Geolocation
+- weather.js // index.html - body에 <script src="js/weather.js"></script> 추가 // greetings, clock, quotes, background, todo
+- navigator.geolocation.getCurrentPosition(); // requires 2 args // 1. 문제 없을 때 실행 함수 2. 에러시
+
+function onGeoOk(position) {
+const lat = position.coords.latitude;
+const lng = position.coords.longitude;
+console.log("You live in", lat, lng);
+}
+
+function onGeoError() {
+alert('Can't find you. No weather for you."
+}
+
+navigator.geolocation.getCurrentPosition(onGeoOk, onGeoError);
+
+#8.1 Weatehr API
+- openweather.org/api // 날씨 api 이용하기
+
+function onGeoOk(position) {
+const lat = position.coords.latitude;
+const lon = position.coords.longitude;c
+const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}`;
+console.log("You live in", lat, lon);
+fetch(url) // 실제 URL으로 이동 할 필요 없이 Javascript가 대신 URL을 호출 // 크롬의 Network 화면에서 확인 가능 // fetch = promise, 이는 일정 시간 뒤에 실행 됨 // .then(response => response.json()).then(data => {
+const weatherContaiddddner = document.querySelector("#weather span:first-child");
+const city = 
+const name = data.name;
+const weather = data.weather[0].main;
+});
+}
+
+url + &units=metric 을 넣으면 온도 얻기 가능- url + &units=metric 을 넣으면 온도 얻기 가능
+
+#8.2 Conclusions
+- wetube에 javascript에 관한 더 많은 자료 및 실습 영상
+- css는 개인 실습

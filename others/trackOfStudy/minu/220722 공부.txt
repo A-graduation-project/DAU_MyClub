@@ -1,0 +1,7 @@
+220722 공부기록
+* 백준 코테 1문제
+
+* React
+#2-1 Before React
+-  javascript without <React>
+- import react & react-dom

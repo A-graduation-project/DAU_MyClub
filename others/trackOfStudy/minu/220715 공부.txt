@@ -1,0 +1,19 @@
+220716 공부기록
+
+- 백준 5598번
+
+- 회의 준비
+ - 디스이즈 컨택
+
+* Vanilla JS
+#6.0 Quotes
+- quotes[Math.floor(Math.random() * quotes.length)];
+
+#6.1 Backgrounds
+- const image = ["0.jpeg", "1.jpeg", "2.jpeg"];
+const chosenImage = images[Math.floor(Math.random() * quotes.length)];
+bgImage = document.createElement("img");
+bgImage.src = `img/${chosenImage}`;
+document.body.appendchild(bgImage);
+
+#6.2 Recap
