@@ -1,0 +1,98 @@
+220724 공부기록
+
+* 백준 코테 문제 1
+
+* React.JS 강의
+#3.3 Recap 
+- 복습
+#3.4 State Functions
+- 사용자들의 input을 어떻게 얻는지
+- form을 만들었을 때, state 는 어떤식으로 동작하는지
+- state를 바꾸는 2가지 방법
+ 1) modifier(5) 와 같이 직접 설정
+ 2) 현재 state를 기반으로 계산을 수행하는 함수
+ modifier(counter + 1); (x)
+ modifier((current) => current + 1); // 더 안전한 방법 (o)
+
+#3.5 Inputs and State
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script src = ""></script>
+<script src = ""></script>
+<script type="text/babel">
+    const root = document.getElementById("root");
+    function App() {
+        const [minutes, setMinutes] = React.useState(); // useState는 array를 제공, 그 첫 번째 element가 현재의 값(minutes). 두 번째 element는 첫 번째 element를 수정하는 modifier 함수(setMinutes)
+        const onChange = (event) => {
+            setMinutes(event.target.value); // 데이터를 업데이트 하는 방법은 setState // setMinutes 활용하기
+        }
+        return (
+            <div>
+                <h1 className="hi">Super Converter</h1> 
+                <label htmlFor="minuts">Minuts</label>
+                <input 
+                value={minutes} // 사용자의 입력 값
+                id="minutes" 
+                placeholder="Minutes" 
+                type="number" 
+                onChange={onChange} // 입력 값 update
+                />
+                <label htmlFor="hours">Hours</label>
+                <input id="hours" placeholder="Hours" type="number" />
+            </div>
+        ); 
+        // labe은 input 옆에 글씨를 써주는 HTML 태그
+        // label을 input에 연결시키기 위해 html에서는 for/id 속성을 이용
+        // js에서는 class -> JSX에서는 className
+        // js에서는 for -> JSX에서는 htmlFor
+        // React JS 기준, 현재 상태에선 input 값(vALUE)은 uncontrolled 로 undefined 와 같은 상태 
+
+    }
+    function countUp() { 
+        counter += 1;
+        render();
+    } 
+    function render() {
+        ReactDom.render(<Container />, root); // 컨테이너를 'root' 라는 이름의 태그에 담아준다
+    }
+    const Container = () => (
+        <div>
+            <h3>Total Clicks : {contuner}</h3>
+            <button onClick={onClick}>Click me</button>
+        </div>
+    );
+    render();
+</script>>
+</html>
+
+// 앞으로는 github에 각 강의별로 commit을 이어나갈 예정
+
+#3.6 State Practice part one
+- 복습
+- *HTML 속성들도 잘 숙지해야 되겠다!!*
+
+#3.7 State Practice part two
+- flip button 만들기 (minutes <-> hours) // disabled{flipped} <-> disabled{!flipped}
+- hours input change event listening // 현재는 hours에 무언가를 작성이 불가
+- 삼항 연산자 활용 
+minutes -> value = {flpped ? minutes * 60 : minutes)}
+hours -> value = {flipped ? minutes : Math.round(minutes / 60)}
+
+#3.8 Recap
+
+#3.9 Final Practice and Recap
+- Code Challenge preparation
+ // Km 2 M 예쁘게 만들기!
+- Component // function App() {~~};
+- select function(JSX)
+- Dividing components
