@@ -1,0 +1,72 @@
+220725 공부기록
+
+*백준 코테 8958: OX퀴즈(bronze 2)
+
+*ReactJS
+#4 PROPS
+#4.0 Props
+- Previously ; isolation / encapsulation 을 적용, 
+독립된 component 생성(Minutes to Hours)
+- Props ; 부모 컴포넌트로부터 자식 컴포넌트에 데이터를 보낼 수 있게 해주는 방법
+// 이전 코드 다 지움
+- Props 사용 이유 ; 컴포넌트의 재사용
+ex) 같은 스타일을 지닌 Btn을 컴포넌트화
+
+#4.1 Memo
+- prop vs eventListener의 차이
+- 부모 컴포넌트의 변경이 있으면 모든 자식들은 re-rendered 됨
+// *이는 추후 어플리케이션이 느려지는 원인이 될 수 있음*
+
+#4.2 Prop Types
+- *prop practice
+- Prop Types ;
+어떤 타입의 prop을 받고 있는지 체크해줌
+// react, babel 등과 마찬가지로 CDN 방식으로 script src로 호출
+Btn.propTypes = {
+text: PropTypes.string.isRequired,
+fontSize: PropTypes.number,
+}
+
+#4.3 Recap
+- configurable components
+// having reusable markup & styles as much as we can
+-> btn 컴포넌트 생성
+// prop(컴포넌트에 렌더링되는 데이터를 부모로부터 전달하는 통로)를 활용
+- propTypes
+// 타입검사
+
+#5 CREATE REACT APP
+#5.0 Intro
+- CRA: 리액트 어플리케이션을 만드는 최고의 방식
+// 자동 refresh 기능
+
+#5.1 Tour of CRA
+- 특정 태그에 대한 CSS 모듈화
+ex) Button.module.css
+적용 // import styles from "./Button.module.css"
+
+function Button({text}){ //text 라는 prop
+    return <button className={styles.btn}>{text}</button>;
+}
+
+#6 EFFECTS
+#6.0 Intro
+- 내가 원할때만 render 할 수 있기(state가 change 될 때 한번만)
+
+#6.1 useEffect
+- 내가 원할때만 render 할 수 있기(state가 change 될 때 한번만)에 대한 해답
+=> useEffect
+
+import { useState, useEffect } from "react";
+첫 번째 arg - 딱 한번만 실행하는 코드
+두 번째 arg - 나중
+
+#6.2 Deps
+
+#6.3 Recap
+- UseEffect는 react.js가 동작하는 관점에선 방어막 같은 존재
+// 언제 re-redering 될 지를 정해줌
+
+#6.4 Cleanup 
+- 많이 사용되진 않지만 알아두어야 함
+- 가볍게 시청
