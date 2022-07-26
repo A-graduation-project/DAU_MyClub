@@ -1,0 +1,114 @@
+220726 공부기록
+
+* 백준 코테 문제
+- 3052번(bronze 2)
+- 2920번(bronze 2)
+
+
+* React.js #7
+
+* React.js 복습
+- React.js ; 엔진과 같다. interactive한 UI를 만들 수 있게끔 도와주는 library
+- Reac-DOM ; React elemnet를 HTML에 두는 역할을 하는 library or package
+- render ; React element를 갖고서 HTML로 만들어 배치한다. => 사용자에게 보여준다.
+ex) ReactDOM.render(span, root); // React로 만든 span을 HTML내 root에 배치한다
+
+- JSX ; javascript를 확장한 문법
+HTML 문법과 유사한 문법 // createElement ~ 구문 사용 대체
+ex) const Title = (
+<h3 id="title" onMouseEnter={() => console.log("mouse entered");>Hello I'm a title</h3>
+);
+- 컴포넌트의 첫 글자는 반드시 대문자
+ex) <Title />, <Button />
+// 소문자이면 React, JSX는 이를 HTML 태그로 간주
+
+- Babel ; code Transformer
+JSX로 적은 코드를 브라우저가 이해할 수 있도록 code를 변환시켜줌
+
+++
+function Title() {
+return (
+~~
+);
+
+const Title = () => (
+~~
+);
+++
+// 위 두 함수는 같은 역할을 한다. // 화살표 함수는 return을 내포
+
+- State ; 데이터가 저장되는 곳 // 바뀌는 데이터
+// Array로 값을 반환한다. // [data, modifier]
+ex) const [data, modifier] = React.useState(초기값) 
+// 실시간으로 바뀌는 데이터만을 적용하여 re-rendering 시켜줌 
+// 데이터가 바뀌는 function이 있는 곳 마다 render()를 다시해줄 필요 X
+// modifier가 modify(수정) 및 re-rendering 기능을 담당
+ex) 
+const onClick = () => {
+modifier(data +1); // 해당 방식은 추후 복잡한 로직, 프로그램이 커지면 좋지 않은 방법 
+// Because, you sometimes won't be able to catch where all of the erros happens and why 
+// 대안 코드 - modifier((current) => current +1); // *무조건 이렇게 사용 권고
+// 위의 코드 => 이전 데이터를 기반으로 현재 값을 리턴
+// 대안 코드 => 현재 값을 기반으로 새로운 값을 리턴
+}; 
+
+// javascript 에서는 여러 노드트리를 거쳐 많은 정보를 새롭게 업데이트 한다면,
+React 에서는 *데이터만을* 업데이트 하므로 효율에 있어 엄청난 차이를 보임(댓글)
+++
+유용한 댓글 모음
+
+1.
+react 18 버전부터 createRoot를 사용해야 합니다.
+
+우선 Container를 전역에서 한번, 버튼 클릭할 때마다 rendering을 해야 하는데
+ReactDOMClient.createRoot(root).render()를 두 곳에 모두 쓸 경우와
+function render()를 호출한 경우 모두
+작동은 되지만 console창에
+ReactDOMClient.createRoot() 대신 root.render()를 호출하라고 뜹니다.
+구글링 해보니 ReactDOMClient.createRoot()를 변수에 담아 사용하더라구요.
+
+const root = ReactDOM.createRoot(document.getElementById("root")); 이렇게 하고
+render 함수를 만들지 않고
+렌더링이 필요한 부분은
+root.render(); 이렇게 작성하니 잘 됩니다!
+
+2.
+react18 버전으로 createRoot 사용해서 이번 강의 코드 만들면 이렇게 됩니다
+꺽쇠 '<>'가 입력이 안돼서 대괄호로 치환했으니 참고하고 봐주세요
+
+const DOM = ReactDOM.createRoot(document.getElementById("root"))
+let counter = 0;
+
+function countUp() {
+counter++;
+Render();
+}
+
+function Render() {
+return (
+DOM.render(
+[Container /]
+)
+)
+}
+
+function Container() {
+return (
+[div]
+[h3]Total clicks: {counter}[/h3]
+[button onClick={countUp}]Click me[/button]
+[/div]
+)
+};
+Render();
+
+3. 
+변경된 부분만 업데이트된다는게 왜 좋은건가 했는데
+리액트가 아닌 경우, 일반 자바스크립트를 쓴 브라우저는
+노드정보가 바뀔때마다 노드트리를 처음부터 다시 생성한대요 5단계에 걸쳐서. 
+근데 리액트는 가상돔을 써서 우리 시야에 보이는 부분만 수정해서 보여주고 
+모든 업뎃이 끝나면 일괄로 합쳐서 실제 돔에 던져준다고합니다! 
+이거 면접때 많이 물어보는거래요. 브라우저 작동원리와 연관있음. 
+니꼬쌤이 말하는 “렌더”가, 렌더트리를 말씀하시는 것 같은데 
+프엔은 이 렌더트리 단계를 얼마나 최적화하는가가 중요하다더라구요! 이상입니다 
+++
