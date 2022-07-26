@@ -7,7 +7,8 @@
 
 * React.js #7
 
-* React.js 복습
+* React.js 복습 // *해당 복습 과정을 통해서 처음 들었을 때 잘 이해안되던 내용들이 명확하게 이해 됨!!!
+
 - React.js ; 엔진과 같다. interactive한 UI를 만들 수 있게끔 도와주는 library
 - Reac-DOM ; React elemnet를 HTML에 두는 역할을 하는 library or package
 - render ; React element를 갖고서 HTML로 만들어 배치한다. => 사용자에게 보여준다.
