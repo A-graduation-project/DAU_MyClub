@@ -1,0 +1,76 @@
+220727 공부기록
+
+* 부에노컴퍼니 서류합격 // 자소서 작성
+
+* 백준 1/2 문제
+
+* React.js
+#4
+- components isolation x encapsualtion // 분할
+
+- Props ; 부모 컴포넌트로부터 자식 컴포넌트에 데이터를 보낼 수 있게 해주는 방법
+// 컴포넌트의 재사용
+// ex) 버튼들에 공통적으로 적용할 수 있는 style 컴포넌트 만들기
+
+function Btn({ text }) {
+return (
+<button style = {{
+background ~~
+}}
+>
+{text}
+</button>
+);
+}
+
+function App() {
+return (
+<div>
+<Btn text="Save Changes" /> // 화면에 나타나는 UI
+<Btn text="Continue" /> 
+</div>
+);
+}
+
+const root = document.getElementById("root");
+ReactDOM.render(<App />, root);
+
+- React Memo 개념 ; let components configurable & reusable
+const MemorizedBtn = React.memo(Btn)
+
+function App() {
+const [value, setValue] = React.useState("Save Changes");
+const changeValues = () => setValue("Revert Changes");
+return(
+<div>
+<MemorizedBtn text={value} onClick={changeValue} />
+<MemorizedBtn text="Continue" />
+</div>
+);
+}
+
+ex) 바뀔 필요가 없는 버튼의 업데이트를 중지 해달라고 하기 위해 사용
+
+- Prop Types (CDN 필요) 타입을 잘못 지정함으로써 발생 가능한 에러 방지
+Btn.propTypes = {
+text: PropTyeps.string.isRequired,
+fontsize: PropTypes.number,
+};
+
+function App() {
+return (
+<div>
+<Btn text="Save Changes" fontsize={18} />
+<Btn text={14} fontSize={"Continue" /> // 위에서 설정한 Prop Types에 의하여 타입 에러 메시지 출력
+</div>
+);
+}
+
+# React-Native 맛보기
+- 니꼬 피셜 ; React 와의 유사도 97%
+- Requirements ; React.js
+ - state
+ - props
+ - useEffect
+ - useState
+- How does R-N work
