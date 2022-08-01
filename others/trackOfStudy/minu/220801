@@ -1,0 +1,113 @@
+220801 공부기록
+
+* 온라인 회의 툴 FigJam - https://www.figma.com/team_invite/redeem/8nbc8kUvLOXcVU4PyjeQ1c
+* 백준 2292 
+* 외국계 기업 준비 Notion 예시 - https://www.notion.so/visiodeibc/11dd8b2deb844203be5c0de7fb77e1dd
+* leetcode - solved 4 이후(어림 짐작 10월부터)
+* 니꼬 - React Native 마스터 클래스 + 챌린지 (12만원)
+* React.js 에 대한 recap도 필요하겠다!
+* eo - 실리콘밸리 인턴에서 대표까지 14년 동안 깨달은 '인생에서 가장 중요한 것'
+// "Life is a game"
+
+*React
+#5 Create React App
+5.0 Intro
+- npm 
+5.1 Tour of CRA
+- CRA practice
+ - the point of CRA is to divide and conquer !
+ ex) style.css 대신 Button.css를 만들어서 특정 버튼에만 적용되는 css를 만들어 적용시키기
+- .btn { color = white; }
+- className = {styles.btn}
+
+#6 Effect
+- API 호출 등 어떤 중요한 작업을 할 때, 코드의 실행을 제한하기 위함
+-> useEffect
+
+#6.2 Deps
+- how to use & apply useEffect
+- sidenote ; 크롬 창에서 개발자도구(F12)를 보면 두번 렌더링 된다. Why?
+ Nico -> In development mode React renders everything twice :) Nothing is wrong with your code.
+
+#6.3 Recap
+- react.js 에서는 새로운 데이터가 들어올 때마다 자동으로 UI & 전체 component 를 refresh
+- 여기에서, 특정 component만 refresh 하길 원한다면, useEffect를 활용할 수 있다 + dependency ( 지켜보아야 하는 것 설정 -> ex) [ ] )
+- useEffect ; 코드를 언제 실행할 지 선택하는 것
+
+#6.4 CleanUp
+- component 가 destroy 될 때 실행
+// Clean Up function
+
+function Hello() {
+useEffect(() => {
+console.log("created !");
+return () => console.log("destroyed");
+}, []);
+return <h1>Hello</h1>;
+}
+
+# React Native
+#2.0 Snack
+- 온라인 코드 에디터 (https://snack.expo.dev)
+휴대폰에 exop 앱 or 웹사이트에서 확인 가능
+// 브라우저에서 React 어플리케이션 개발 가능
+
+#2.1 The Rules of Native
+*** 브라우저가 아니라 모바일 앱을 위한 랭귀지!
+1. div <-> View (container)
+2. react Native에 있는 모든 text는 text component 내에 들어가야 함
+3. StyleSheet.create()
+4. status-bar (시계, 배터리, wifi 상태 표시줄) - third party package
+
+#2.2 React Native Packages
+- Components
+ - Core
+ - IOS
+ - Android
+
+#2.3 Third-Party-Packages
+- Community // RN팀이 API 개발을 정리하면서 Community에서 개인적으로 이를 대체하여 제공
+- Expo SDK(packages team) // Community에서 개개인으로 운영되다보니 정리되질 않아 Expo 팀에서 기존에 RN에서 제공하던 API를 renew 하여 새롭게 제공
+
+#2.4 Layout System
+- Flexbox
+
+#2.5 Styles
+- CSS + API 가져오기
+
+#2.6 Styles Part two
+- ScrollView (스크롤을 도와주는 API)
+- Horizontal (좌우 스크롤)
+- Dimensions API + PagingEnabled
+
+#2.7 Location
+- expo install expo-location
+- 권한요청*
+
+#2.8 Weather
+- 날씨 array from openweathermap.org/api
+
+#2.9 Recap
+- useEffect() + getWeather()
+- location granted
+- geoCode, 위-경도, 도시, API호출(날씨), One Call API
+- 빈 Array에 가져 온 정보의 object를 추출해서 넣기
+
+#2.10 Icons
+- expo-init 내 expo/vector-icons 패키지
+
+#3 Work hard Travel hard App
+#3.0 Intro
+- 브라이언 디자인 기반 여행리스트 / Todo 앱
+- 데이터 input / 데이터 유지 / 기본 state 다루기
+- expo init WorkHardTravelHardApp --npm (새 프로젝트 생성)
+
+#3.1 Touchables
+- App Headers
+- bit of CSS(colors.js)
+- Button의 3가지 컴포넌트(TochableOpacity, TouchableHighlight, TouchableWithoutFeedback)
+
+#3.2 TextInput
+- Travel <-> Work 왔다갔다 TouchableOpacity onPress 활용
+- <TextInput keyboardType> 에 다양한 종류
+- returnKeyType // send 버튼
