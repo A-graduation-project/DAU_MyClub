@@ -1,0 +1,38 @@
+220803 공부기록
+
+* JS promise, async, await 공부
+ - https://joshua1988.github.io/web-development/javascript/promise-for-beginners/
+
+* RN 복습
+#1 Intro
+- Worst part of RN is to set up to get started
+- How Does React Native Work
+; React Native is an interface between the User and the OS
+; RN sends messages to OS(IOS, Android) through the bridges
+ - How the Communication within RN works
+
+#2 Weather App
+- Snack
+- StyleSheet.create()
+- RN Layout
+ - Flexbox
+  - few exceptions // no display:block, grid
+  - by default, they are all already Flex Containers, Column
+ - We don't use width or height for the mobile apps
+ Rather, use just flex: 1 처럼 비율로 사용
+ ex) 
+<View style={{ flex: 1 }}>
+ <View style={{ flex: 1, backgroundColor: "tomato" />;
+ <View style={{ flex: 1, backgroundColor: "orange" />;
+</View>
+해당 코드로 인하여 화면이 2분할 되어 나타남
+
+** View 코드 끝에 세미콜론(;) 금지!
+
+- Styles
+ - ScrollView
+  row, 즉, horizontal은 일반 style이 아닌 contentContainerStyle prop을 사용!
+ - Dimension
+ - pagingEnabled
+
+#3 To do list
