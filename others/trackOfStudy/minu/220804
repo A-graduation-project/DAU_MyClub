@@ -1,0 +1,60 @@
+220804 공부기록
+
+*백준 10250번: ACM호텔
+
+* FreeCodeCamp RN 연습 강의
+
+* callback // https://www.youtube.com/watch?v=UGTA0_kIoyo&ab_channel=%EC%9A%B0%EB%A6%AC%EB%B0%8B_woorimIT
+* promise - async - await // https://www.youtube.com/watch?v=wzGX9CTsVBI&t=2s&ab_channel=%EC%9A%B0%EB%A6%AC%EB%B0%8B_woorimIT
+* 생활코딩 // https://www.youtube.com/watch?v=TAyLeIj1hMc&list=PLuHgQVnccGMBVQ4ZcIRmcOeu8uktUAbxI&ab_channel=%EC%83%9D%ED%99%9C%EC%BD%94%EB%94%A9
+
+* RN 복습#3~4 (2번째 복습)
+
+- TouchableOpacity onPress
+- const [working, setWorking] = useState(true);
+const travel = () => setWorking(false);
+const work = () => setWorking(true);
+
+- 다양한 props // RN 공식사이트
+
+- object.assign 대신 ES6
+-> const newToDos = {
+...toDos, // *전개연산자
+[Date.now()] : {textx, work, working},
+};
+
+- <ScrollView>
+Object.keys(toDos).map((key) => ( // map함수 !
+<View style={styles.toDo} key={key}>
+<Text style={styles.toDoText}>{toDo}
+</View>
+))}
+</ScrollView>
+
+- Work / Travel 화면 Text 구분
+toDos[key].working === working ? <View> ~
+~ </View> : null
+// working 을 true / false로 설정 함에 따라서
+위와 같은 연산자가 적용 / 변경이 됨
+
+- toDo 데이터 저장하기
+// AsyncStorage 활용
+
+* React Hooks(2019.05) // npmjs.com
+- Hooks list
+ 1. useTitle
+ 2. useInput
+ 3. usePageLeave
+ 4. useClick
+ 5. useFadeIn
+ 6. useFullscreen
+ 7. useHover
+ 8. useNetwork
+ 9. useNotification
+ 10. useScroll
+ 11. useTabs
+ 12. usePreventLeave
+ 13. useConfirm
+ 14. useAxios
+
+- Class Component <-> Functional Comp
