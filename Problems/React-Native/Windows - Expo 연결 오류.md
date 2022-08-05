@@ -12,5 +12,5 @@
 
 
 ### 해결
-![image](https://user-images.githubusercontent.com/49461207/183030449-59b27324-17dc-4e8a-8625-6524cdfd1a79.png)
-에러 해결 이후, 정상 작동하는 모습
+![image](https://user-images.githubusercontent.com/49461207/183031297-236fec9c-5974-4f47-8a61-ea50b4da7caf.png)  
+에러 해결 이후, 정상 동작하는 모습
