@@ -1,7 +1,7 @@
 ### 설명
 휴대폰에 expo를 설치 하고서 노트북과 연결 하는 과정에서 모바일 기기에서 발생한 오류이다.  
-먼저, `expo network response timed out` 오류가 발생하여
-![image](https://user-images.githubusercontent.com/49461207/183029403-9ed61093-705d-4e3b-96b4-a89792e7d714.png)    
+먼저, `expo network response timed out` 오류가 발생하여  
+![image](https://user-images.githubusercontent.com/49461207/183029403-9ed61093-705d-4e3b-96b4-a89792e7d714.png)  
 [해당 블로그](https://kentakang.com/156)를 참고하여 인바운드 포트를 설정하여 문제를 해결,
 
 하지만, 그 이후에도 여전히 다른 에러 문구를 보여주었다.  
