@@ -1,0 +1,15 @@
+220809 공부기록
+
+* RN 간단 복습 & 본격 연습 !
+// 안되는 부분 
+- setText(""); 초기화
+- ScrollView 적용 범위 문제 // prop overScrollMode="always"를 활용하여 문제 해결
+- await/async 복습
+- icons.expo.fyi // 아이콘 찾는 곳!
+- npm start --tunnel(까묵지 말자!) // wifi <-> LAN
+
+* 회의
+
+*마무리
+- 2231 복습
++ (2231, 2798 reviewed)
