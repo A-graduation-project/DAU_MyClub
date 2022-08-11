@@ -1,0 +1,45 @@
+220811 공부기록
+
+* nomad / react / twitter
+- firebase!
+ - 백엔드를 서포트 하기 위한 툴(구글 인수)
+ - 사용 적합 ; 아이디어 *테스트*용
+ - 경쟁사 <-> AWS amplify
+ - 강의에서 사용할 기능
+  - Cloud Firestore
+  - Cloud Storage ==/ AWS S3 (파일 업로드)
+  - Hosting(배포)
+  - Authentication // KEY
+  - 이외 지원 기능 ;
+   - Firebase ML
+   - Realtime Database
+   - Analytics ( test app )
+   ... etc
+
+ - 과금이 있지만 테스트용으론 무료라고 생각해도 된다
+ but, Stroage에서는 주의 할 필요 있다!
+
+* RN 강의 
+1. https://www.inflearn.com/course/%EB%B0%B0%EB%8B%AC%EC%95%B1-%EB%A6%AC%EC%95%A1%ED%8A%B8-%EB%84%A4%EC%9D%B4%ED%8B%B0%EB%B8%8C#reviews
+// RN 중급용 강의
+- 로그인
+- Redux
+- 배달서비스
+ - Token(DB 개념)
+ - 네이버맵 연동
+ - 위치정보/카메라 권한
+ - 내위치
+- 네이티브 모듈 수정
+ - T Map
+ - etc
+- 푸쉬알림, 코드푸쉬, 배포
+
+https://www.inflearn.com/course/web-game-react/dashboard
+// React 선행 강좌
+
+2. https://www.inflearn.com/course/%EC%B2%98%EC%9D%8C-%EB%B0%B0%EC%9A%B0%EB%8A%94-%EB%A6%AC%EC%95%A1%ED%8A%B8-%EB%84%A4%EC%9D%B4%ED%8B%B0%EB%B8%8C#
++ https://jeffgukang.github.io/react-native-tutorial/
+// 초급 // react 설명
+ - hooks
+ - navigation
+ - chat app
