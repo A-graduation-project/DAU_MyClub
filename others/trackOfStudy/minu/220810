@@ -1,0 +1,29 @@
+220810 공부기록
+
+* RN 마무리
+#3.7 Recap
+- setText(""); 문제 여전히 미해결 // useRef() 사용으로 해결
+- ScrollView - reverse() 추가로 최신 to do를 위로 나타내기
++ ScrollView prop에 overScrollMode="always" 추가, 
+안드로이드에서도 bounce 기능 구현
+
+- Android Studio 다운로드 필요 // 우성이는 Xcode or Android Studio 사용하고 있는지?
+
+#3.8 Code Challenge
+ 1. 어플리케이션이 내가 어디에 있었는지 기억하기(Work or Travel)
+  - restore something from async storage
+ 2. 완료 버튼 만들기 
+  - completed (true/false)
+  // 완료
+  - icon 추가(V버튼)
+ 3. text 수정 기능
+
+#4 배포 & expo 문제점
+- 배포 ;
+ -> 미진행 
+
+- expo 문제점;
+ 1. native 파일(infrastructures)에 접근/설정 불가
+ 2. 간단한 기능의 앱임에도 불구, 들어가는 기초 설정이 많기에 용량이 크다
+ => expo eject or create react native app 사용 
+ // infra 설정 가능하게 허용
