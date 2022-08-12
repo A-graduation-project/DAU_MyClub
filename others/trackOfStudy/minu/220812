@@ -1,0 +1,65 @@
+220812 공부기록
+
+* 백준 2문제 복습 2798, 10250
+
+* ReactJS 영화 웹 서비스 만들기 복습
+#2
+ - JSX // javascript의 확장(javascript 와 html의 경계를 허뭄)
+ - Babel // JSX 코드를 브라우저가 이해할 수 있게 transform 해주는 것( -> createElemnet ~~ 형태로 )
+
+#3
+ - useState() // 매 modify 마다 데이터&화면 re-rendering
+ - setCounter((current) => curren+1) // 더 안전한 modifier 활용 방법
+ - disabled={flipped}, {!flipped} // true/false로 설정
+ - challenge // km to miles
+
+#4
+ - React.memo() // 변화되지 않는 prop에 대한 re-rendering은 최소화 하기 위한 방법
+ - PropTypes // type 검사 // 
+ex)
+function Button({ text}) {
+return <button>{text}</button>;
+}
+Button.propTypes = {
+text: PropTypes.string.isRequired,
+};
+
+#5
+ - CRA
+
+#6 
+ - useEffect() // component 안에서 코드가 언제 실행 될지 결정 // dependency
+ => onSubmitEditing + useEffect를 활용하면 좋겠네?
+ex) useEffect(() => {
+function}, [dependency]);
+
+ - destroy function // Cleanup // component가 destroy 될 때의 동작을 관장
+ex) 
+function Hello() {
+useEffect(() => {
+console.log("hi");
+return () => console.log("bye");
+}, []);
+return <h1>Hello</h1>
+}
+... so on
+
+#7 
+ - Router // from "react-router-dom" 
+ // Browser Router <-> Hash Router
+ // Link to // a href 보다 훨씬 빠름
+ - Parameters // ~~ url/:id
+
+* React Hooks
+- 함수를 hooking 하여 다른 함수에서 사용하는 것!
+- history of hooks
+// functional component 에서 state를 가질 수 있게 해주는 것
+=> 앱을 리액트 훅으로 제작한다면, class component, did mount, render 등을 할 필요가 없다!!
+=> functional programming (간단, 쉬움)
+// return 이하가 곧 render 과정
+
+1. useState()
+2. useInput()
+ ; input을 update 
+3. useTabs()
+ ; tab창 관련 동작
