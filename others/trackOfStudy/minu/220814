@@ -1,0 +1,264 @@
+220814 공부기록
+
+* Callback, Promise, Async, Await 복습
+- callback // https://www.youtube.com/watch?v=s1vpVCrT8f4&t=684s&ab_channel=%EB%93%9C%EB%A6%BC%EC%BD%94%EB%94%A9 
+- promise // https://www.youtube.com/watch?v=JB_yU6Oe2eE&ab_channel=%EB%93%9C%EB%A6%BC%EC%BD%94%EB%94%A9
+- async, await // https://www.youtube.com/watch?v=aoQSOZfz3vQ&t=15s
+
+* Callback; 
+// javascript is synchronous
+// Excute the code block in order after *hoisting*
+// hoisting; var, function declaration
+
+console.log('1');
+setTimeout(() => console.log('2'), 1000);
+console.log('3');
+
+// Sync callback
+function printImmediately(print) {
+print(); // print 라는 콜백 함수를 인자로 받아 바로 실행
+}
+printImmediately(() => console.log('hello');
+
+// Async callback
+function printWithDelay(print, timeout) {
+setTimeout(print, timeout);
+}
+printWithDelay(() => console.log('async callback), 2000);
+
+// 콜백 지옥 - 로그인 코드
+class UserStorage {
+  loginUser(id, password, onSuccess, onError) {
+    setTimeout(() => {
+      if (
+        (id === "ellie" && password === "dream") ||
+        (id === "coder" && password === "academy")
+      ) {
+        onSuccess(id);
+      } else {
+        onError(new Error("not found"));
+      }
+    }, 2000);
+  }
+
+  getRoles(user, onSuccess, onError) {
+    setTimeout(() => {
+      if (user === "ellie") {
+        onSuccess({ name: "ellie", role: "admin" });
+      } else {
+        onError(new Error("not found"));
+      }
+    }, 1000);
+  }
+}
+
+const userStorage = new UserStorage();
+const id = prompt("enter your id");
+const password = prompt("enter your password");
+userStorage.loginUser(
+  id,
+  password,
+  (user) => {
+    userStorage.getRoles(
+      user,
+      (userWithRole) => {
+        alert(
+          `Hello, ${userWithRole.name}, you have a ${userWithRole.role} role`
+        );
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  },
+  (error) => {
+    console.log(error);
+  }
+);
+
+// 위와 같은 코드 작성시 문제점
+1. 가독성이 너무 떨어진다.
+2. 에러 및 디버깅의 경우에 문제점 분석이 어렵다.
+3. 유지 보수가 어렵다.
+
+=> 해당 코드를 보완하기 위한 promise, async, await 를 활용하여 병렬적 구조의 코드 작성
+// 위 콜백지옥의 UserStorage class를 Promise를 이용하여 깔끔하게 Refactoring!
+
+class UserStorage {
+  loginUser(id, password) {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        if (
+          (id === "ellie" && password === "dream") ||
+          (id === "coder" && password === "academy")
+        ) {
+          resolve(id);
+        } else {
+          reject(new Error("not found"));
+        }
+      }, 2000);
+    });
+  }
+
+  getRoles(user) {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        if (user === "ellie") {
+          resolve({ name: "ellie", role: "admin" });
+        } else {
+          reject(new Error("not found"));
+        }
+      }, 1000);
+    });
+  }
+}
+
+const userStorage = new UserStorage();
+const id = prompt("enter your id");
+const password = prompt("enter your password");
+userStorage
+  .loginUser(id, password)
+  .then(userStorage.getRoles) // user => (user)생략
+  .then((user) => alert(`Hello, ${user.name}, you have a ${user.role} role`))
+  .catch(console.log); // error => (error) 생략
+
+
+// * Promise ;
+// is a Javascript object for asynchronous operation.
+// 기억 해야될 점
+//  1. State 상태(동작 중인지 <-> 완료 됐는지)
+//   - on operation; pending <-> completed; fufliled or rejected
+
+// 2. Producer <-> Consumer 차이
+//   - Producer;
+// when new Promise is created, the executor runs automatically.
+const promise = new Promise((resolve, reject) => {
+  // doing some heavy work (network, read files)
+  console.log("doing something..."); // promise를 생성하는 순간 executor를 바로 동작
+  setTimeout(() => {
+    resolve("ellie");
+    reject(new Error("no network"));
+  }, 2000);
+});
+
+//  - Consumer; then, catch, finally
+promise
+  .then((value) => {
+    consol.log(value); // resolve()의 값인 'ellie'
+  })
+  .catch((error) => {
+    console.log(error); //reject()에 걸린 에러 메시지 출력
+  })
+  .finally(() => {
+    console.log("finally");
+  });
+
+// - Promise Chaning
+const fetchNumber = new Promise((resolve, reject) => {
+  setTimeout(() => resolve(1), 1000);
+});
+
+fetchNumber
+  .then((num) => num * 2) // num*2로 축약 가능
+  .then((num) => num * 3) // 마찬가지로 num*3으로 축약 가능
+  .then((num) => {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => resolve(num - 1), 1000);
+    });
+  })
+  .then((num) => console.log(num)); // console.log()로 축약 가능
+
+// - Error handling
+const getHen = () =>
+  new Promise((resolve, reject) => {
+    setTimeout(() => resolve("닭"), 1000);
+  });
+const getEgg = () =>
+  new Promise((resolve, reject) => {
+    setTimeout(() => resolve("계란"), 1000);
+  });
+const cook = () =>
+  new Promise((resolve, reject) => {
+    setTimeout(() => resolve("달걀 프라이"), 1000);
+  });
+
+getHen()
+  .then((hen) => getEgg(hen)) // 축약으로 .then(getEgg) 로 표현 가능
+  .catch((error) => {
+    return "빵"; // 해당 과정에서 오류 발생 시 return 이하 구문으로 대체
+  })
+  .then((egg) => cook(egg)) // "" .then(cook)
+  .then((meal) => console.log(meal)) // "" .then(console.log);
+  .catch(console.log); // 에러 메시지 나타냄
+
+// - Callback Hell 을 Promise로
+
+// class UserStorage {
+//   loginUser(id, password, onSuccess, onError) {
+//     setTimeout(() => {
+//       if (
+//         (id === "ellie" && password === "dream") ||
+//         (id === "coder" && password === "academy")
+//       ) {
+//         onSuccess(id);
+//       } else {
+//         onError(new Error("not found"));
+//       }
+//     }, 2000);
+//   }
+
+//   getRoles(user, onSuccess, onError) {
+//     setTimeout(() => {
+//       if (user === "ellie") {
+//         onSuccess({ name: "ellie", role: "admin" });
+//       } else {
+//         onError(new Error("not found"));
+//       }
+//     }, 1000);
+//   }
+// }
+
+// const userStorage = new UserStorage();
+// const id = prompt("enter your id");
+// const password = prompt("enter your password");
+// userStorage.loginUser(
+//   id,
+//   password,
+//   (user) => {
+//     userStorage.getRoles(
+//       user,
+//       (userWithRole) => {
+//         alert(
+//           `Hello, ${userWithRole.name}, you have a ${userWithRole.role} role`
+//         );
+//       },
+//       (error) => {
+//         console.log(error);
+//       }
+//     );
+//   },
+//   (error) => {
+//     console.log(error);
+//   }
+// );
+
+// userStorage.loginUser(
+//     id,
+//     password,
+//     (user) => {
+//       userStorage.getRoles(
+//         user,
+//         (userWithRole) => {
+//           alert(
+//             `Hello, ${userWithRole.name}, you have a ${userWithRole.role} role`
+//           );
+//         },
+//         (error) => {
+//           console.log(error);
+//         }
+//       );
+//     },
+//     (error) => {
+//       console.log(error);
+//     }
+//   );
