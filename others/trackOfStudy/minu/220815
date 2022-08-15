@@ -97,3 +97,18 @@ function App() {
 
 * inflearn / RN / 배달앱
 - 환경설정
+ - choco
+ - Node(nvm-windows)
+ - Java SE Development Kit (JDK)
+// choco install -y nodejs-lts openjdk11 (cmd에 입력 -> 위 3가지 한번에 설치)
+// 설치 중 checksum Error 떴지만 다시 설치를 진행하니 문제없이 완료
+ - Android Studio 
+  - 세부 설치 버전 설정
+  - 환경 변수 설정
+
+- 프로젝트 시작하기
+ - npm run android 에서 에러
+  1. error Failed to launch emulator. Reason: No emulators found as an output of `emulator -list-avds`.
+   - ERROR: JAVA_HOME is not set and no 'java' command could be found in your PATH.
+  2. error Failed to install the app. Make sure you have the Android development environment set up: https://reactnative.dev/docs/environment-setup.
+   - Error: Command failed: gradlew.bat app:installDebug -PreactNativeDevServerPort=8081
