@@ -1,0 +1,99 @@
+220815 공부기록
+
+* async, await
+; Promise를 조금 더 간결, 간편하면서 동기적으로 실행되도록 나타내주는 친구!
+ex) promise .then ~ .then ~ .then ~ 같은 표현 대신 async, await (syntatic sugar)
+// clear style of using promise !
+
+// 1. async
+function fetchUser() {
+  // do network reqeust in 10 secs...
+  return new Promise((resolve, reject) => {
+    // 위와 같이 10초동안 기다리지 않고 비동기 방식으로 통신을 진행하기 위해 Promise 사용
+    // return "ellie"; // resolve or reject 를 호출하지 않은 채로 Promise가 끝난다면 state : pending
+    resolve("ellie"); // 위 문제를 해결키 위해 resolve로 반환 -> state: fulfilled, result : 'ellie'
+  });
+
+  // return "ellie";
+}
+
+async function fetchUser(user) {
+  return "Ellie";
+} // 위와 같은 function !
+// But, async 를 사용하여 간소화
+
+const user = fetchUser();
+user.then(console.log);
+console.log(user);
+
+// 2. await
+function delay(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms)); // ms초가 지나면 resolve를 호출하는 promise를 리턴
+}
+
+async function getApple() {
+  await delay(3000); // 3초가 지나면 resolve를 promise를 전달
+  return "사과"; // 3초 후, '사과'를 리턴하는 promise가 만들어진다
+}
+
+async function getBanana() {
+  await delay(3000);
+  return "바나나";
+}
+
+// 3. useful Promise APIs
+function pickAllFruits() {
+  return Promise.all([getApple(), getBanana()]).then(
+    (
+      fruits // 전달 받은 배열들을
+    ) => fruits.join(" + ") // join으로 묶는다
+  ); // 병렬적 처리를 위한 Promise API
+}
+pickAllFruits().then(console.log); // pickAllFruits가 성공적으로 수행되면 출력
+
+function pickOnlyOne() {
+  return Promise.race([getApple(), getBanana()]);
+}
+
+pickOnlyOne.then(console.log); // 먼저 받아온 배열을 출력
+
+* NC / React / Movie
+-Router;
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
+import Detail from "./routes/Detail";
+import Home from "./routes/Home";
+
+function App() {
+  return (
+    <Router> // 렌더링 역할
+      <Switch> // 한번에 하나의 Route만 렌더링 하기 위해
+        <Route path="/movie">
+          <Detail />
+        </Route>
+        <Route path="/">
+          <Home />
+        </Route>
+      </Switch>
+    </Router>
+  );
+}
++ Link to
+
+ - Parameter
+; React Router allows you to have dynamic url
+// ex) <Route path="/movie/:id">
+// useParams을 통해 id값 출력 가능
+ - Publishing
+// npm i gh-pages
+; 결과물을 github pages에 업로드 하여 도메인을 제공, 배포 가능하게끔 해주는 패키지
+
+* NC / React / Twitter
+- git remote add origin 저장소url
+- ReactJS 세팅 완료
+- Firebase 세팅 생략 (추후 복습 시 진행)
+ - npm install --save firebase + CDN firebaseConfig code
+- 영상 시청 우선
+ #1, #2 recap, #3 recap
+
+* inflearn / RN / 배달앱
+- 환경설정
