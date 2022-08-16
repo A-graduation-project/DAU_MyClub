@@ -1,0 +1,8 @@
+220816 공부기록
+* RN / 배달앱 섹션0
+- npm run android 과정에서 에러와 씨름 중
+ - 재설치 이후 첫 에러
+  - Task :app:compileDebugJavaWithJavac FAILED
+  => 질문에 대한 대답 ; react-native가 최신 버전으로 업데이트 되어 호환이 되지 않는 에러가 
+뜬 것!
+ - 어찌저찌 드디어 해결 ㅜㅜ,,, 하... 꼬박 하루 썼다
