@@ -1,0 +1,83 @@
+220817 공부기록
+
+* RN / 배달앱 / 
+- 섹션 0 (완료)
+- 기본 프로젝트 구조와 index.js
+ // 아이폰 기준으로 코딩하라!
+ // => 아이폰 기준으로 코딩하면 안드로이드로 옮겼을 경우 차이가 나는 점은 border 및 기타 옵션들이다.
+ 
+- 리액트 네이티브 기본 컴포넌트 분석
+ // styles의 크기는 보통 dip(화면 대비 크기)
+ // flexDirection - 세로 우선
+ // SafeAreaView - 휴대폰의 상단(노치)을 죽은 공간 처리
+ // ScrollView <-> FlatList(컨텐츠가 많으면 ScrollView 에서 속도가 느려지기에 FlatList사용)
+ 
+- 데브메뉴와 Flipper
+ // 앱 네임 수정방법
+ // 메트로 'd' - 데브 메뉴 - perf monitor
+ // 디버거 - Flipper(네트워크&DB 까지 확인 가능)
+ 
+- 앱 이름 바꾸기, 강좌 폴더 구조 잡기
+ - 폴더구조
+ // src; javascript souce folder
+ // "" - assets; img, video, fonts, gif ...
+ // "" - constants; 상수(대문자 불변 값)
+ // "" - pages; 페이지 큰 단위
+ // "" - components; 페이지 내 컴포넌트들
+ // "" - contexts; 컨텍스트 API
+ // "" - hooks; hook API
+ // "" - modules; native modules(objective C, java)
+ // "" - store; redux store
+ // "" - slices; redux slices
+ // types; 타입 정의
+ - css 속성 리스트(https://github.com/vhpoet/react-native-styling-cheat-sheet)
+  // flexDirection Column이 default <-> Web 은 Row
+
+- 리액트 내비게이션 사용해보기
+ - <-> 리액트 라우터 네비게이션
+ - 스택네비게이션;
+ // 스택 네비게이션의 개념은 자료구조의 스택처럼 하나씩 쌓아가는 개념입니다. 만약 모바일 앱에서 어떤 다른 페이지로 이동을 한다고 했을 때 그 페이지로 완전히 전환 되는 것이 아닌 그 페이지가 위에 쌓인다고 할 수 있습니다. 또 다른 페이지로 이동이 되면 쌓이고 뒤로가기 버튼을 통해 쌓인 스택을 하나 벗겨낼 수 있습니다.
+ // const Stack = createNativeStackNavigator();
+ - Stack.Navigator; 네비게이션 상태 저장
+ - Stack.Navigator; 스크린들의 묶음
+ - Stack.Screen; 화면
+ - CatalynstInstance 에러 - 재시작
+
+- flex와 요소 배치
+ - typescript; javascript의 매개변수, 리턴값, 변수에 type을 지정해주는 녀석!
+ ex) function HomeScreen({navigation}: HomeScreenProps) { // HomeScreenProps 처럼 : 뒤의 값이 type이다. ~~ }
+ -  View style의 flex
+ - Pressable 과 같이 Android, IOS 모두 호환하는 기능을 쓰는게 좋다 
+ - 버튼 영역을 키우고 싶다면 <Pressable style={{padding: 30}}> 과 같이!
+ - 버튼의 크기를 보려면 TouchableHighlight로 클릭시 확인 가능
+ - or backgroundColor 를 이용!
+ - text color를 변경하고싶다면 Text버튼에서 직접 style을 설정하여 변경할 것! 
+ // 버튼과 별개인점 유념!
+
+- 리액트 네비게이션 화면 전환하기
+ - function HomeScreen({ navation, route }: HomeScreenProps) {
+const onClick = useCallback(() => {
+navigation.navigate('이름');
+}, [navigation]);
+ - typescript 사용법,,, ㅜ
+ - 어쨌거나 저쨌거나 공식 문서를 잘 참고해야 한다!
+
+- 라우트 params와 헤더 옵션들
+ - typescript 예시 // react navigation 공식 문서 권장
+type RootStackParamList = {
+ Home: undefined; // 파라미터로 넣어줄 것이 없으면 undefined
+ Details: undefined; // 파라미터; 페이지(주소)에 변수를 추가
+ // 페이지 목록들...
+};
+type HomeScrennProps = NativeStackScreenProps<RootStackParamList, 'Home>;
+type DetailsScreenProps = NativeStackScreenProps<ParamListBase, 'Details'>;
+ 
+- 보너스: Relative와 Absolute로 모달 그리기
+ ** 아래 코드가 더 높은 순서를 지님
+ ex) 
+ 코드 1
+ 코드 2
+ 순서이면 코드 1로 짜여진 화면이 나타나고 그 위에 코드 2가 덮어쓰기 때문
+ - <View style={{position: 'absolute', (top: 0, bottom: 0, right: 0, left: 0}}>
+ - 'absolute'는 사용 지양
+ - View backgroundColor : 'rgba(0,0,0,5)' - 반투명 색상
