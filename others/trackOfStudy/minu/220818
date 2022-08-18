@@ -1,0 +1,138 @@
+* 추가 공부 필요
+- *typescript
+- *flipper 설치 ( 많은 오류 예상 ㅜ)
+- useRef()
+- useCallback()
+- JS 문법 ( ?. , ?? ) 
+optional chaning 연산자 // https://www.youtube.com/watch?v=WHUvtiKy_pg&ab_channel=%EC%BD%94%EB%94%A9%EC%95%A0%ED%94%8C
+- navigation
+- 정규표현식
+- React.FC
+- Provider (?)
+- useSelector()
+- context API
+
+정리; 
+섹션 1-7에서 처음 보는, 이해되지 않는 개념들이 너무나 많았다.
+Flipper 설치하면서 천천히 훑어가야 되는걸까...
+
+# RN / 배달 앱 / 섹션 1
+ㅁ 앱 라우터 구성하기
+1. 페이지(라우터) 설계 방법
+ex) 배달 앱 -> 주문 목록 화면(배달 기사님용) / 세팅 화면 / 배달 화면 / 완료 화면
+// 특정 주문 클릭 시 -> 배달 화면
+// 배달 완료 처리 방법 => 완료 화면에서 사진 업로드 // 완료하는 목록
+// 세팅 => 정산 화면 
+
+ex) 로그인 상태 확인 후 화면 보여주기
+function App() {
+  const [isLoggedIn, setLoggedIn] = useState(false);
+  return (
+    <NavigationContainer>
+      {isLoggedIn ? (
+        <Tab.Navigator>
+          <Tab.Screen
+            name="Orders"
+            component={Orders}
+            options={{title: '오더 목록'}}
+          />
+          <Tab.Screen
+            name="Delivery"
+            component={Delivery}
+            options={{headerShown: false}}
+          />
+          <Tab.Screen
+            name="Settings"
+            component={Settings}
+            options={{title: '내 정보'}}
+          />
+        </Tab.Navigator>
+      ) : (
+        <Stack.Navigator>
+          <Stack.Screen
+            name="SignIn"
+            component={SignIn}
+            options={{title: '로그인'}}
+          />
+          <Stack.Screen
+            name="SignUp"
+            component={SignUp}
+            options={{title: '회원가입'}}
+          />
+        </Stack.Navigator>
+      )}
+    </NavigationContainer>
+  );
+}
+
+export default App;
+
+2. 스크린과 중첩 라우팅
+- 새로운 패키지 설치 시 Hot reloading이 동작하지 않기에, npm run android 재부팅 해줘야 적용 됨!
+- Delivery 화면에서 지도 Stack을 쌓아놓고, 완료 Stack을 그 위로 (?)
+- 메모리가 쌓여야 될 페이지/매번 새롭게 로드되어야 할 페이지 구분
+
+3. 로그인 화면 만들기
+- <Tab.Group> 사용 - 특정 스크린들간에 공통 속성이 있을 때, 혹은 Screen이 하나의 묶음 안에 있어야 한다는 에러가 날 때
+- *const canGoNext = email && password 와 같이 설정 해줌으로써 코드리딩시 가독성 높이기!
+ // 주석이 필요 없어진다. 변수 자체가 설명서 역할을 하기 때문
+- 휴대폰이라는 특징에 맞게끔 유저 사용성 향상을 위하여 폰트 사이즈는 약간 크게!
+
+4. TextInput 사용하기
+- secureTextEntry // 비밀번호 *로 보이게 하기
+- autoComplete, importantForAutofill, textContentType 등등
+ // autoComplete에서 OTP 자동완성도 설정 가능함
+- reactnative 공식 문서에서 안드로이드용 - IOS용 구분해서 사용하기 // 동일한 환경을 제공하고 싶다면 공통 prop 사용 권장
+- useRef() ; 참조(커서) 
+ -> 사용법 복습 필요 + useCallback()
+- typescript 사용 ex)
+ const emailRef = useRef<TextInput | null>(null);
+- blurOnSubmit={false} 
+// 이메일 입력 후 키보드 내려 가는 동작 막는 것
+- onSubmitEditing={() => {
+ passwordRef.current?.focus(); // 이메일에서 submit 하면 password로 넘어가는 것
+}}
+
+5. 회원가입과 Keyboard, KeyboardAvoiding View
+- 정규표현식 email, password
+- KeyboardAvoidingView behavior="position" 
+// 입력시에 input 창 가리는것 피하기
+// android -> position이 잘 동작 <-> IOS -> padding이 잘 동작
+=> behavior={Platform.OS === 'android' ? 'postion' : 'padding'}
+-  TouchableWithoutFeecback onPress={Keyboard.dismiss} accessible={false} 
+// Input 바깥 창 눌렀을 경우 키보드 내려가기
+// accessible -> 장애인 대상 웹 접근성
+
+6. keyboard-aware-scrollview와 커스텀 타이핑
+- KeyboardAvoidingView가 손댈 곳이 많기에
+keyboard-aware-scrollview로 대체!
+- React.FC (?)
+- 라이브러리 타입스크립트화 하는 법
+
+7. 리덕스 연결하기
+- 백엔드 back/app.js 
+- redux, redux-toolkit, flipper
+- Provider
+// isLoggiedIn -> redux로 교체하여 관리
+const isLoggedIn 
+// Provider 바깥에서는 useSelector를 못 쓴다
+- useSelector() 
+
+# RN / 배달 앱 / 섹션 2
+1. axios로 서버에 요청보내기
+- back-end 연결하여 회원가입 진행해보기
+- react-native 강좌는 axios로 진행되나, 차후 ky나 got으로 변경 될 수도... !?
+- axios 사용 -> async, await 문법 사용 -> try catch finally 사용
+- 서버 개발자가 "/user (주소로) POST 요청을 axios를 사용하여서 해라" 라고 일러줄 것.
+그러면, ```await axios.post( '/user', {email, name, password } )``` 처럼 작성
+- 서버개발자와의 약속은 깃헙 API.md 파일 참조
+- http method 종류; get, post, put, delete, head, options
+
+2. 로딩창 만들기(ActivityIndicator)
+- 사용자의 편의를 위하여 요청-응답 대기시간 동안의 로딩창을 만들어 주기
+- type에는 'unknown'도 존재
+- 타입 스크립트의 서버 에러는
+```const errorResponse = (error as AxiosError).response;``` 로 사용
+- 회원가입을 광클하는 ㅁ1친 사람도 존재한다. 해당 사항에 대한 에러 혹은 예외처리를 할 필요가 있다.
+ex) ```disabled={ !canGoNext || loading }```
+ex) <ActivityIndicator /> // 로딩 시 돌아가는 버튼
