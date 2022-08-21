@@ -1,0 +1,42 @@
+220821 공부기록
+
+*Sidenote
+- hook vs function 차이
+; 모든 것은 하나의 function이 되는 것 함수형 프로그래밍이 가능해지는 것
+// 예를 들면 function component에서 state을 가질 수 있게 된 것
+// 만일 앱을 react hook을 사용하여 만든다면 class component, render 등을 안해도 된다는 뜻
+
+- Custom Hooks
+
+* RN / 배달앱 클론 / 섹션2
+// 복습; 
+- axios로 서버에 요청 보내기
+ - useEffect의 retrun은 CleanUp함수이기에, promise를 사용해야 되는 async를 (일반적으론) 사용 불가
+ 
+- 로딩창 만들기(ActivityIndicator)
+ - 코드 내 필기
+
+// 진도
+- react-native-config 문제 해결하기
+; 앱 빌드 과정에서 연결-출력 과정에서의 문제 발생 및 해결
+
+- Redux, Config, EncryptedStorage, AsyncStorage의 차이
+ - AsyncStorage; 보안에 민감하지 않지만 유지되어야 하는 값
+ - EncryptedStorage; 보안에 민감한 값
+ - Redux; 앱이 켜져있는 상태에서만 저장-동작(속도 가장 좋음)
+ - React-Native-Config; 개발 환경별로 달라지는 값(암호화 x)
+
+- 리덕스 소개
+ - redux
+ // 코딩애플(https://www.youtube.com/watch?v=QZcYz2NrDIs&ab_channel=%EC%BD%94%EB%94%A9%EC%95%A0%ED%94%8C)
+  - 쓰는 이유
+  1. props 문법 귀찮을 때
+  // 하위 component들에 state를 쓸데 없이 전달 - 전달 할 필요가 없어짐 ( store 활용 )
+  2. stats 변경 관리할 때
+  // 상태(state) 관리가 용이
+  // store에 사용할 다양한 state를 명시 해놓고 사용하고자 하는 component에선 사용 요청을 하는 방식
+  // 이러한 경우에 사용하는 hook이 Reducer
+
+ - action; state를 바꾸는 행위/동작
+ - dispatch; 그 액션을 실행하는 함수
+ - reducer; 액션이 실제로 실행되면 state를 바꾸는 로직
