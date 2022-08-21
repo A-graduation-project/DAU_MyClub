@@ -1,0 +1,113 @@
+220819 공부
+
+* 추가 공부 필요 (220818 내용)
+- *typescript
+- *flipper 설치
+
+유튜브 - 별코딩 영상 참고
+-----------------------------
+*렌더링 -> component 함수 호출 -> 모든 내부 변수 초기화
+
+- useRef() // 설명 지림 - https://www.youtube.com/watch?v=VxqZrL4FLz8&ab_channel=%EB%B3%84%EC%BD%94%EB%94%A9
+; ref의 대표적 사용 경우 2가지
+1) 저장공간 // State와 다르게 렌더링이 없어 변수 값이 유지된다 (성능과 직결)
+2) DOM 요소에 접근 // focus() 를 사용하여 input창으로 포커스를 이동할 때
+
++ useEffect() // https://www.youtube.com/watch?v=kyodvzc5GHU&ab_channel=%EB%B3%84%EC%BD%94%EB%94%A9
+; 아래의 경우에 특정 작업을 수행하고 싶을 때 사용하는 함수
+- Mount // 화면에 첫 렌더링
+- Update // 다시 렌더링
+- Unmount // 화면에서 사라질 때
+
+1) 렌더링 될 때 마다 실행
+useEffect(() => {
+// 작업
+});
+
+2) 화면에 첫 렌더링 될 때(=마운트), 배열 안 value 값이 바뀔 때마다 실행
+useEffect(() => {
+//작업
+}, [value]);
++ 배열이 빈 값이면 화면에 첫 렌더링 될 때만 실행
+
+- useEffect의 cleanUp
+const Timer = (props) => { // 2번째 배열 인자가 빈 값이기에 처음 렌더링 됐을 때만 실행
+const timer = setInterval(() => {
+console.log('타이머 돌아가는중...');
+}, 1000);
+
+return () => { // 리턴 이하는 Unmount 될 때만 실행
+clearInterval(timer);
+console.log('타이머가 종료되었습니다.');
+};
+}, []);
+
+return(
+<div>
+<span>타이머를 시작합니다. 콘솔을 보세요!</span>
+</div>
+);
+
++ useState() // 무거운 작업을 들고올 때 인자로 콜백 함수로 불러오기
+ex) useState(() => {
+return heavyWorks();
+})
+
+- useContext() 
+; 일반적인 React Component Tree를 살펴보면 부모 컴포넌트에서 자식 컴포넌트로 프롭을 아래로 전달(Prop Driling) 전달 하는 구조로 구성되어 있다.
+하지만, useContext()는 하위의 트리에서 전역 데이터를 어디서든 사용할 수 있게끔 해주는 역할
+*Context는 꼭 필요할 때만 사용하기!
+왜냐하면, 
+1. Context를 사용하면 컴포넌트를 재사용하기 어려워질 수 있다
+2. 단순히 Prop drilling을 피하기 위한 목적이라면 Component Composition(컴포넌트 합성)을 먼저 고려해보기!
+
+- context API // https://velog.io/@velopert/react-context-tutorial
+; Context는 리액트 컴포넌트간에 어떠한 값을 공유할수 있게 해주는 기능
+"리액트 컴포넌트에서 Props가 아닌 또 다른 방식으로 컴포넌트간에 값을 전달하는 방법이다"
+
+- useMemo // 
+; Memoization의 Memo
+; 동일한 값을 반복적으로 리턴하는 함수를 반복적으로 호출해야 된다면, 제일 처음 사용할 때 캐쉬 메모리에 저장하여 다음에 꺼내 사용하는 것
+const value = use Memo(() => {
+return calculate(); // 리턴하는 함수
+}, [item]); // 배열의 값이 업데이트 될 때만 콜백을 업데이트 하여 호출 or 기존 리턴 값을 사용
+
+**js에서 원시타입<->객체타입 차이 숙지 !!!
+const locationOne = "korea"
+const locationTwo = "korea"
+locationOne === locationTwo 
+> true
+
+const locationOne = {
+country: "korea"
+}
+const locationTwo = {
+country: "korea"
+}
+locationOne === locationTwo 
+> false
+
+- useCallback() // 컴포넌트 최적화
+; Memo와는 다르게 콜백함수 그 자체를 memoization 한다.
+
+-useReducer() // State와 같은 상태관리 hook
+; 여러 개의 하위 값을 포함하는 복잡한 state를 다룰 때
+- Reducer // state 업데이트를 담당하는 은행
+- Action // 요구의 내용
+- Dispatch // 요구 행위 
+
+-------------------------
+- redux ; 
+컴포넌트 안에 컴포넌트가 있을 때 컴포넌트들 간에 데이터를 주고 받을 때 props 로 연결해야 합니다. 
+비유하자면, props라는 전선으로 컴포넌트들을 연결한 것이라고 할 수 있습니다. 
+컴포넌트들도 블루투스나 와이파이처럼 무선으로 연결할 수 있다면 얼마나 편할까요?
+이를 위해서는 통신을 중계할 기지국이 필요합니다. 
+리덕스의 스토어를 기지국으로 해서 컴포넌트들을 무선으로 연결할 수 있다면 생산성을 크게 높일 수 있습니다. 
+
+- useSelector();
+redux store 안에 있는 값을 조회할 때 사용하는 hooks
+// mapStateProps hook과 비슷
+
+- JS 문법 ( ?. , ?? )
+; optional chaning 연산자 // https://www.youtube.com/watch?v=WHUvtiKy_pg&ab_channel=%EC%BD%94%EB%94%A9%EC%95%A0%ED%94%8C
+
