@@ -1,0 +1,100 @@
+220822 공부기록
+
+* UI 디자인
+* RN 인스타그램 간단 클론코딩(https://velog.io/@anpigon/React-Native-UI-%EB%A7%8C%EB%93%A4%EA%B8%B0-1)
+
+* RN / 배달앱 / 섹션2
+7. accessToken과 refreshToken
+ - accessToken; 최초 발급 토큰 // 유효기간 5, 10분, 1시간 ...
+ - refreshToken; 갱신한 토큰 // 유효기간 1일, 30일 ...
+ // access토큰 - refresh토큰 저장소 분리하기 (보안)
+ - Encrypted(Async)Storage.setItem('키', '값') // promise형태
+ - ..
+
+8. 웹소켓 연결하기
+ - 웹소켓; 서버-기기간 실시간 통신을 허용해주는 방법 중 하나 // real-time이기에 배터리 소모, 서버 부하 증가 등의 문제 존재
+ + 요청-응답 방식이 아닌 실시간 양방향 통신
+
+9. 실시간 데이터 받기, 로그아웃(Bearer 토큰)
+ - useEffect의 리턴값은 cleanUp
+
+* 섹션3
+1. 앱 껐다 켜도 로그인 유지하기
+
+. 주문 목록 화면 만들기(FlatList)
+ - ScrollView는 반복문, map 같은 함수들이 있으면 성능 면에서 좋지 않기에 FlatList 사용 권장
+
+. 주문 수락, 거절 버튼 만들기
+ - 컴포넌트 내 반복문은 항상 파일 분리 권장 // 그렇지 않으면 고차 함수 사용해야 됨
+
+* NC / Typescript / #2
+- How to Typescript works
+ - 타입스크립트는 자바스크립트 코드로 변환되기(컴파일) 전에 타입을 검사, 오류를 알려준다!
+ <-> 자바스크립트 (실행 중 런타임 에러)
+
+ - 타입스크립트는 타입을 infer 할 수도 있다.
+
+- Implicit Types vs Explicit Types
+ - 구체적(Java)
+ - 추상적(파이썬)
+ - 타입스크립트 = 이 둘의 중간
+ - 가능한 Typescript가 infer 하도록 놔두는 편이 좋다.
+
+- Types of TS pt.1
+ const player: {
+ name: string,
+ age?: number // '?'를 사용하면 may or may not 의 의미를 지닌다. // type: undefined
+} = {
+ name: "nico"
+}
+
+사용하려면 > if(player.age && player.age < 10) { // 이와 같이 player.age && 를 먼저 적어주어야 사용 가능
+}
+
+ 
+ - 매 변수마다 이처럼 중복 선언을 해줄 수 없기에 type Alias 를 사용
+type Player = {
+ name: String,
+ age: number
+}
+
+- 함수의 return 타입 지정 방법
+const playerMaker = (name:string) : Player => ({name})
+const nico = playerMaker("nico")
+nico.age = 12
+
+- pt.2
+ - readonly 속성을 타입에 추가할 수 있다.
+type Player = {
+ readonly name: Name // readonly 사용방법
+ age?: Age
+} 
+Player.name = "nico" // 에러 발생
+
+ - Tuple // 정해진 갯수, 타입의 요소를 가져야 하는 array 지정
+const player : [string, number, boolean] = ["nico", 1, true]
+
+ - any // Typescript의 rule으로부터 빠져나오는 타입 // 사용 지양
+
+- pt.3
+ - Typescript에만 존재하는 Types
+ - unknown; response의 타입을 모를 때 사용
+ - void; 아무것도 return 하지 않는 함수에 사용
+ // ex) function hello() { console.log('x') } // void
+ - never; 함수가 절대 return을 하지 않을 때 발생 + 오류를 발생시키는 타입
+ // ex) function hello(): never{
+ throw new Error('xxx') }
+ // function temp(name:string|number):never {
+    if(typeof name === "string"){
+        name
+    } else if(typeof name === "number"){
+        name
+    } else {
+        name
+    }
+  }  
+
+if 안에서는 string형의 name 반환
+else if 안에서는 number형의 name 반환
+else 안에서는 never형의 name 반환
+⇒ 즉, 제대로 인자가 전달되었다면 else로 올 수 없음
