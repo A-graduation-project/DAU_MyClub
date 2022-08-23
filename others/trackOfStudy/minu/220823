@@ -1,0 +1,124 @@
+220823 공부기록
+
+1. Typescript #3
+2. RN #4
+3. UI 자료조사 및 디자인
+4. 클린코드 독서
+
+* NC / typescript
+#3-0 Call signature
+- call signature
+; 함수 위에 마우스를 올렸을 때 보게 되는 것 
+// 타입을 중복적으로 복잡하게 작성하는 것을 피하기 위해 아래와 같이 작성
+
+type Add = (a: number, b: number) => number // ( a, b ) 는 파라미터 타입 => number는 리턴 타입
+const add: Add = (a, b) => a+b
+
+#3-1 Overloading
+- overloading
+; 여러 call signatures가 있는 함수
+위의 식을 overloading을 사용할 경우 아래와 같이 수정 가능
+
+ex1)
+type Add = {
+(a: number, b: number) : number
+(a: number, b: string) : number
+}
+
+const add: Add = (a, b) => {
+if(typeof b === "string") return a
+return a+b
+}
+
+ex2) 
+type Add = {
+(a: number, b: number) : number
+(a: number, b: number, c: number) : number
+}
+
+const add: Add = (a, b, c?:number) => {
+if(c) return a + b + c
+else return a + b
+}
+
+#3-2 Polymorphism
+; many differnet structures, shapes 
+여러줄의 타입을 반복적으로 선언하는 것을 대체하기 위한 *<Generic> 타입
+type SuperPrint =  {
+<TypePlaceholder>(arr: TypePlaceholder[]):void // + void =>  return이 없다
+}
+
+const superPrint: SuperPrint = (arr) => {
+arr.forEach(i => console.log(i))
+}
+
+superPrint([1, 2, 3, 4])
+superPrint([true, false, ture])
+superPrint([1, 2, "hello", ture]) //  const superPrint: <number | string | boolean>(arr: ( number | string | boolean)[]) => void 의 형태
+// 이 모두를 가능하게 해줌
+
+#3-3 Generic Recap
+type SuperPrint = <T>(a: T[]) => T
+function superPrint<T>(a: T[]) {
+return T
+
+#3-4 Conclusions
+- 사용법 총정리
+
+* sidenote
+1. 오버로딩
+1.1 오버로딩이란?
+: 한 클래스 내에 같은 이름의 메서드를 여러 개 정의하는 것을 '메서드 오버로딩' 또는 간단히 '오버로딩'이라 한다.
+
+1.2 오버로딩의 조건
+- 메서드 이름이 같아야한다.
+- 매개변수의 개수 또는 타입이 달라야 한다.
+* 오버로딩된 메서드들은 매개변수에 의해서만 구별될 수 있으므로 반환 타입은 오버로딩을 구현하는데 아무런 영향을 주지 못한다는 것에 주의해야한다.
+
+* RN / 배달앱 / 섹션4
+#4-1 네이버맵 연동하기
+ - react-native-naver-map (npm i 필요)
+ - java 파일 수정
+ - 세부 View style 설정
+
+#4-2 [맥 전용 네이버맵 세팅]
+
+#4-3 **위치 정보, 카메라 권한 얻기(react-native-permissions) // 중요 중요
+ - npm i react-native-permissions (코드는 제로초 깃허브에 + 해당 깃허브 따로 존재(understanding permission flow 꼭 참고)
+ - Platform으로 운영체제 구별
+ - Linking으로 다른 서비스 열기 가능 위치 정보 가져오기
+
+#4-4 내 위치 가져오기(geolocation)
+ - npm i @react-native-community/geolocation
+
+#4-5 이미지 선택해서 리사이징하기
+
+#4-6 RN에서 폼데이터 사용해서 이미지 업로드하기
+
+*Figma 강의
+#1 기초강의
+- 안드로이드 사이즈 예시 - 360 x 640(디테일은 차이 있음)
+
+#2 유용 기능
+- 커뮤니티/플러그인(vscode - extension)
+ // unsplash ( 이미지 넣기 도움 )
+- 커뮤니티/검색/icon kit
+ // 사용하고 싶은 아이콘도 얻을 수 있음
+- 리스트 만들어서 component화 // 마우스 우클릭 add auto layout
+ 
+#3 프로토타입 제작
+- 컴포넌트로 만들어서 색상 누르면 화면에 적용시키기
+- 마우스 우클릭 프레임 적용(슬라이드도 확인 가능)
+
+#4 고급편
+- 커뮤니티 활용하기
+ - wireframe kit 가져와서 사용
+ - mobile UI kit를 가져와 재구성 하여 사용도 가능
+
+
+*Sidenote
+- "친숙한 느낌의 앱이었으면 좋겠다."
+ex) 만들어 주세요!
+- 디스이즈와 비슷한 UI로 갈것인가?
+
+* 클린코드 독서 start - 1장
