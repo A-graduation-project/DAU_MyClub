@@ -1,0 +1,23 @@
+220825 공부기록
+
+* 앱 메인화면 만들기
+1. 하단 탭 만들기
+ - 라이브러리 설치 제대로
+ - NavigationContainer
+2. 하단 탭 + 메인 합치기
+ - 컴포넌트 분리하기
+ - 분리된 컴포트 App.js에서 import하여 사용
+ - Options = {{ headerShown: false }} 추가
+3. 반응형 디자인 적용
+ - React Native의 Dimensions 
+// Dimensions를 사용하면 현재 디스플레이의 크기를 얻어올 수 있다.
+// get() 함수 안 속성값으로, "window"와 "screen"이 있다.
+// window: 보이는 어플리케이션 창의 크기
+// screen: 기기 전체 화면의 크기
+ - useWindowDimensions 
+// 이 함수는 width와 height를 자동으로 업데이트해준다. 
+
+* Typescript #4
+- Day4 챌린지 제출
+ 1) last(arr): 이 함수는 array의 마지막 아이템을 리턴해야 합니다.
+ 2) prepend(arr, item): 이 함수는 array의 시작에 아이템을 넣고, 리턴해야 합니다.
