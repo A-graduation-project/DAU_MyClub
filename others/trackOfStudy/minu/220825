@@ -17,7 +17,7 @@
  - useWindowDimensions 
 // 이 함수는 width와 height를 자동으로 업데이트해준다. 
 
-* Typescript #4
+* Typescript #3 완료
 - Day4 챌린지 제출
  1) last(arr): 이 함수는 array의 마지막 아이템을 리턴해야 합니다.
  2) prepend(arr, item): 이 함수는 array의 시작에 아이템을 넣고, 리턴해야 합니다.
