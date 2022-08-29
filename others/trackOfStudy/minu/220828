@@ -1,1 +1,50 @@
+220828 공부기록
 
+* RN 연습
+
+1. 반응형 수정(https://jiny-dongle.tistory.com/41)
+- React Native Responsize Dimensions
+import {} from "react-native";
+import {
+  responsiveScreenHeight,
+  responsiveScreenWidth,
+  responsiveScreenFontSize,
+} from "react-native-responsive-dimensions";
+
+const FIGMA_WINDOW_WIDTH = 360;
+const FIGMA_WINDOW_HEIGHT = 760;
+
+export function widthPercentage(width: number): number {
+  const percentage = (width / FIGMA_WINDOW_WIDTH) * 100;
+
+  return responsiveScreenWidth(percentage);
+}
+
+export function heightPercentage(height: number): number {
+  const percentage = (height / FIGMA_WINDOW_HEIGHT) * 100;
+
+  return responsiveScreenHeight(percentage);
+}
+
+export function fontPercentage(size: number): number {
+  const percentage = size * 0.135;
+
+  return responsiveScreenFontSize(percentage);
+
++ styled-components 적용 연습
+- Errors
+1. npm i styled-components 설치 시 에러
+// 해결 => --force  
+2. Text strings must be rendered within a <Text> component 에러
+// 오류가 어디에서 난지 모르겠음..
+// 추측 => styled-components 설치 때 보았던 버전 간 에러에서 기인한 것이 아닌가...?
+// 해당 라이브러리 관련 변수들을 주석처리 하여 재실행하니 잘 동작
+// 추후에 다시 공부하여 사용해야겠다.
+
+2. 메인에 아이콘 적용 실습
++이미지 적용 실습
+- icons.expo.fyi 
+// expo로 실행해야 사용 가능한 듯... ㅜ // 참고 - https://github.com/expo/vector-icons
+// => react-native-vector-icons 사용 // 사용법이 expo icons랑 많이 달라 https://infinitbility.com/how-to-add-icon-in-bottom-tab-navigation-react-native/ 해당 블로그 참고
+
+3. 홍보 게시판 실습
