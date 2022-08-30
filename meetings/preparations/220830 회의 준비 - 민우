@@ -1,0 +1,21 @@
+220830 회의 준비
+
+* 공부
+ 1. 타입스크립트 챌린지 Day7 및 강의
+ 2. RN 연습
+ - 아이콘 적용 수정
+ + 이미지 적용
+ - 메인 기능 수정
+ - 홍보게시판
+
+ 3. 기능 다이어그램 구상
+ 4. JWT 리뷰
+  - 다들 읽어보았는지?
+
+* 기능 다이어그램
+ 1. 짜다 말았음!
+ 2. 플로우차트란? (https://blog.naver.com/PostView.nhn?blogId=ycpiglet&logNo=222113989214&from=search&redirect=Log&widgetTypeCall=true&directAccess=false)
+
+// 기능 명세서를 먼저 작성하자 !? 
++ 유사 앱 분석 문서화 필요 (https://m.blog.naver.com/sinoo3/221878131307)
++ 와이어프레임 - 동작 다이어그램 같이 가져가기(figma)
