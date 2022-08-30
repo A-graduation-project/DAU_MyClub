@@ -1,0 +1,23 @@
+220830 공부기록
+
+*Typescript Challenge Day7
+- #4 마무리
+- Day7 과제
+
+*RN 연습
+ - 아이콘 적용 수정
+ // 블로그 참고하여 필요 설정 완료 // https://dev-yakuza.posstree.com/ko/react-native/react-native-vector-icons/ 
+ ; Fonts 경로 이동, build.gradle 수정
+ // 미완 - 아이콘 activeTintColor, headershown 전역 설정 수정
+ ; activeTintColor - focused or active 이용, 삼항연산자 써보자
+
+#4-2 Interfaces
+ - readonly
+ - static
+ - type vs Interface
+// interface는 조금 더 객체지향 적인 성격을 지님
+// type은 조금 더 flexible
+
+#4-3 Interfaces part 2
+ - class ~ implements ~ 
+// abstract class 보다 더 lighter한 방법
