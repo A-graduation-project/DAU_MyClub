@@ -1,0 +1,82 @@
+*상세기능설명서 (다이어그램) 작성
+
+*Typescript #4
+- #4.4 Recap
+- #4.5 Polymorphism
+- Day7 challenge 마무리
+
+*RN 연습
+- 메인 기능 구현
+ - 클릭 시 페이지 전환
+  - src 폴더 생성, 하위로 pages, components 폴더 생성
+  - pages 폴더 / 각 페이지 파일 생성 ( 중앙 동아리, 단과 대학 동아리, 로그인 ... )
+  - components 폴더 /  컴포넌트 모음 - ( HomeMenu, Login ... )
+  - 페이지 이동 구현에서 애먹는 중 // Navigation 사용법에 익숙해지는 중
+  // React-Navigation (https://velog.io/@rhfovk/Route-React-Navigation)
+  // React-Router ( ? )
+ - 홍보 게시판 페이지 ( 아직... ㅜㅜ) 
+
+#4.4 Recap
+- abstract class vs interface ;
+추상 클래스는 자바스크립트로 변환되어 파일 사이즈에 영향
+BUT, 인터페이스는 변환 X, 영향 X
+
+- Type Aliases과 Interfaces의 차이점
+
+Type Aliases과 인터페이스는 매우 유사하며 많은 경우 자유롭게 선택할 수 있습니다. 인터페이스의 거의 모든 기능은 type에서 사용할 수 있으며, 주요 차이점은 type을 다시 열어 새 속성을 추가할 수 없는 것입니다. 반면 인터페이스는 항상 확장 가능합니다.
+
+결론: 대부분의 경우 개인 취향에 따라 선택 가능
+(인터페이스 사용을 조금 더 추천)
+
+https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#differences-between-type-aliases-and-interfaces
+
+#4.5 Polymorphism
+generic 인자로 전달 가능하다.
+
+```
+interface SStorage {
+[key:string]:T
+}
+
+class LocalStorage {
+private storage: SStorage = {}
+//Create
+set(key:string, value:T){
+if(this.storage[key] !== undefined){
+return console.log(`${key}가 이미 존재합니다. update 호출 바랍니다.`)
+}
+this.storage[key] = value
+}
+//Read
+get(key:string):T|void {
+if(this.storage[key] === undefined){
+return console.log(`${key}가 존재하지 않습니다.`)
+}
+return this.storage[key]
+}
+//Update
+update(key:string, value:T){
+if(this.storage[key] !== undefined){
+this.storage[key] = value
+} else {
+console.log(`${key}가 존재하지 않아 새로 만듭니다.`)
+this.storage[key] = value
+}
+}
+//Delete
+remove(key:string){
+if(this.storage[key] === undefined){
+return console.log(`${key}가 존재하지 않습니다.`)
+}
+delete this.storage[key]
+}
+clear(){
+this.storage = {}
+}
+}
+
+const stringsStorage = new LocalStorage()
+
+const booleanStorage = new LocalStorage()
+```
+예외처리 및 CRUD 구현
