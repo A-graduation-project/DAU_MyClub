@@ -13,6 +13,7 @@
   // npm i @react-navigation/bottom-tabs 
   // npm i react-native-vector-icons
   // npm i react-native-responsive-dimensions
+  // npm i react-native-gesture-handler
  - 폴더구조 재구성
   - App.js, AppInner.js, src / pages / Home.js, SchoolWideClubs.js, DepartmentalClubs.js, AdBulletinBoard.js, RequestBulletinBoard.js 으로 구성
   
