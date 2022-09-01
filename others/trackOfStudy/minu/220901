@@ -1,0 +1,17 @@
+220901 공부기록
+
+* 오전수업 09-13
+
+* RN
+- navigation 및 hooks (https://code-masterjung.tistory.com/126)
+
+- 새로운 프로젝트(연습용) 생성 // npx react-native init RNnew
+- 필요 패키지 설치
+  // npm i @react-navigation/native
+  // npm i react-native-screens react-native-safe-area-context
+  // npm i @react-navigation/native-stack
+  // npm i @react-navigation/bottom-tabs 
+  // npm i react-native-vector-icons
+ - 폴더구조 재구성
+  - App.js, AppInner.js, src / pages / Home.js, SchoolWideClubs.js, DepartmentalClubs.js, AdBulletinBoard.js, RequestBulletinBoard.js 으로 구성
+  
