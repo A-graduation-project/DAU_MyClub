@@ -1,0 +1,57 @@
+220907 공부기록
+
+* RN
+- 컨테이너 컴포넌트 사용;
+모든 스크린 컴포넌트의 최상단에 위치, 공통적으로 들어가야될 속성들 저장
+
+- 뒤로가기 기능
+ - navigation.navigate <-> navigation.push (push를 써야 stack 가능)
+ // navigate로 작성시 뒤로가기 navigation.pop() 사용 불가 
+ - BackHandler 
+// 사용 보류
++ Drawer Navigator(사이드바)
+
+- 게시물 (로그인과 난이도 비슷?)
+// (https://binaryjourney.tistory.com/17)
+
+- 광고 기능(추후 예정)
+// Firebase & Admob (https://lifeonroom.com/study-lab/react-native-ads-3/)
+
+- 검색 기능
+// 꽤나 복잡 - https://velog.io/@skyosk123/React-Native-Search-Input
+
+- 로그인 기능(제일 마지막?)
+// 가장 복잡 (https://github.com/sangkuOH/marketKurly/blob/master/src/Pages/SignIn/SignIn.js)
+
+
+* Side Note
+- 달력 사용법 (https://code-masterjung.tistory.com/127)
+// react-native-calendars
+
+- KeyboardAvoidingView (https://code-masterjung.tistory.com/127)
+
+- useFocusEffect ;
+(https://velog.io/@rhfovk/useFocusEffect) // 잘 이해 못함, 왜 사용해야 되는지?
+
+- Splash Screen(Launch Screen) ;
+어플리케이션이 켜지기 전 나오는 화면 - 시작 화면
+// ActivityIndicator 사용할 것
+
+- FlatList <-> ScrollView ;
+출력해야 하는 데이터가 고정적이고 많지 않을 때 간단하게 사용할 수 있는 컴포넌트
+
+- 자바스크립트 ?.(optional chaining) 문법 복습
+// <중첩된(user.age.value 같이 .이 두개이상)> object 자료에서 뽑아쓸 때, reference 에러 없이 안전하게 사용 가능
+var user = {
+name : 'kim',
+age : {value : 20}
+};
+console.log(user.age.value) // 20 리턴
+console.log(user.age?.value) // age가 없으면 오른쪽 실행 X, undefined 리턴
+
+- ?? nullish coalescing 연산자
+// console.log( user ?? '로딩중 ) // 왼쪽 변수가 undefined or null 이면 오른쪽을 실행
+
+* 다이어그램 수정
+권한에 따른 동작
+// 회원 - 글쓰기 허용, 비회원 - 로그인 페이지로
