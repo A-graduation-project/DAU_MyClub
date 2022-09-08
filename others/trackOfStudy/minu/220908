@@ -1,0 +1,35 @@
+220908 공부기록
+
+* 학교 수업
+- 임베디드 소프트웨어
+- 컴퓨터구조
+- 파이썬
+
+*복습
+// 임베디드;
+- 아두이노 실습
+ - begin(9600) // 9600 bps, 올라갈수록 data loss 증가
+ - 회로도 PinOut
+ - LED High, Low
+ - Serial.Read() - 1바이트만 리턴
+ - if(isDigit(val)) // val이 아스키코드 값이므로 숫자로 바꿔주는 함수
+ - LCD // 필요 라이브러리 설치. Liquid Crystal Display // 다음시간
+
+// 컴퓨터구조
+- Byte Ordering // Big-Endian, Little-Endian (복습 필요)
+- 진법과 진법 변환 // 2, 8, 10, 16
+- 보수;
+컴퓨터에서 음수를 표현하기 위한 개념 // 1의 보수 -> 2의 보수
+p.20 그림 재질문 필요
+- 유니코드
+- 기출문제(연습문제) 
+
+// 파이썬
+- print('문자열', sep옵션, end옵션)
+- f스트링, 정렬, Dictionary
+- .format
+- 이스케이프 문자(\n, \t, \b, \\, \', \")
+- *동적할당* // python에서는 각 변수마다 메모리주소를 참고하기에 자료형의 크기가 가변적 <-> C의 int는 4바이트
+- type(), getsizeof()
+- input() // return 문자형
+- eval() // 타입을 추론하여 계산 가능하게끔 해줌
