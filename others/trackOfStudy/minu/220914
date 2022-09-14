@@ -1,0 +1,23 @@
+220914 공부기록
+
+* RN
+- 로그인 페이지 redirect + layout 다듬기
+- fetch or axios로 데이터 처리
+
+- 검색 자동완성 기능
+// 실습 - https://www.youtube.com/watch?v=_NtJG8_UICw&ab_channel=CodeForYou
+
+// React(Monster) - https://velog.io/@hang_kem_0531/React-Monster-%EA%B2%80%EC%83%89-%EA%B8%B0%EB%8A%A5-%EA%B5%AC%ED%98%84%ED%95%98%EA%B8%B0
+
+// axios 사용;
+브라우저, Node.js를 위한 Promise API를 활용하는 HTTP 비동기 통신 라이브러리
+// https://ssilook.tistory.com/entry/React-Native-RN-%EA%B2%80%EC%83%89-%EC%9E%90%EB%8F%99-%EC%99%84%EC%84%B1-%EA%B8%B0%EB%8A%A5-%EA%B5%AC%ED%98%84%ED%95%98%EA%B8%B0
+
+// Flatlist; 많은 양의 스크롤이 필요한 리스트 아이템을 보여주고자 할 때 쓰이는 리액트네이티브 컴포넌트이다
+JS에서의 map 함수 역할과 비슷하나 더 많은 기능을 내포하고 있어 react-native에서 많이 쓰이는 컴포넌트이다.
+
+- 게시판 기능
+
+* 학교 공부
+- 정보보호 2, 3
+ + NEW-LMS-Downloader // github // https://github.com/VDoring/New-LMS-Downloader/releases/tag/v2.0.11
