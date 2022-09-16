@@ -1,0 +1,106 @@
+jwt json web token  json을 통해서 웹토큰
+
+bcrypt 사용하기
+
+bcrypt 라이브러리 설치 
+
+const bcrypt = require('bycrpt');
+
+/동기적으로 사용
+/해쉬
+const password = 'abc1234';
+const hashed = bcrpt.hashSync(password.10) /길이가 10개인 salt 를 지정
+
+10개는 복잡도와 연관 길어질수록 시간이 길어진다. /기하급수적으로 증가한다. 
+해쉬를 안전하게 할거라고 salt 를 길게하는 것은 cpu가 처리하는 것이어서 좋지않다. 
+
+10에서12와 8에서10정도 // 사용하는 서버고려도 해야한다. 
+
+const result = bcrypt.compareSync('abc1234', hashed); 같은지 다른지 비교하여 패스워드를 안전하게 보관할 수 있다. 
+
+salt 추가적인 데이터이다. 암호화하는데 있어서 
+
+
+const jst = require('jsonwebtoken');
+
+const token = jwt.sign({
+    id:'userId',
+    isAdmin: true, // 계속 주고 받는것에 있어서 네트워크에 소모가 클 수 있으니 정말 필수적인 데이터만 넣는것이 중요 
+},'ajs(fgdjf8AHUYSdif#$ijkf8u#Uf83i' /시크릿키는 정말 중요한 서버에서 보관하는 데이터이다. 임의적인 문자열을 사용해도 되지만 조금더 안전하게 하고 싶다면 32바이트짜리정도? 패스워드를 만드는 곳에서 가져와도 된다.  ) /sign 을 만들때에는 payload(토큰을 보낼때 정말 담고싶은 정보를 전달) 와 PrivateKey , options 이 필요하다. 옵션은 설정가능한데 알고리즘 키아이디 언제만료 ...등등 여러가지 설정가능 옵션은 설정하지 않으면 기본값으로 전달된다. 해도되고 안해도된다. 
+
+jwt token이 만들어진다. 토큰을 해독하면  우리가 사용한 헤더부분 알고리즘 종류와 타입 추가한 정보들 만들어진 시간 그리고 헤더와 페이로드 시크릿에 대한 정보도 나오게 된다. 시크릿은 나오지 않는다. 
+
+만약 해독하고 안의 정보를 변경한 토큰을 가져오게 되면 (이때 토큰은 달라져 있다.)
+
+const edited = 변경된 토큰 정보를 변경한(임의적으로 예:해킹)
+
+jwt.verify(edited, secret(공통된 시크릿을 통해서), (error,decoded)=> {
+console.log(error,decoded);}
+이를 출력하면 에러가 나온것을 확인할 수 있다. invalid signature 라는 문구가 나오게된다. 
+이 말은 즉 한번 발행된 토큰은 변경되면 안된다. 무언가를 변경한다면 시그니처가 변경되기 때문에 (시그니처 문자열) 
+
+변경 전 토큰을 넣게되면 맞다고 한다.
+
+이 과정에서 문제가 되는것은 지금 만든 jwt 는 영원히 유효하다. 누군가가 가져가서 사용할 수 있다. 이것을 만료하도록 만들어야한다. 
+
+const token = jwt({정보},
+sectet,
+{expiresIn:2}) 
+
+만료기간을 2초라고 한다면 
+
+setTimeout(() => {
+jwt.verify(.....); , 3000); 3초라고 설정 
+를 사용하여 확인해 보면 에러가 발생한것을 볼 수 있다. // 만료된 것으로 확인가능
+
+jwt 는 특정시간을 만료기간으로 설정하여 보안에 문제를 해결한다.
+
+auth me 는 미들웨어로 구현한다. 
+16.7
+
+login 으로 전달받은 토큰을 이용해서 헤더부분에 추가에서 auth me 를 디자인 한다. // 이건 다시 찾아볼 것 
+이를 이용하여 어플리케이션이 실행이 되었을 때 기존에 가지고 있는 토큰이 있다면 유효한지 유효하지 않은지 검사하는 용도로 사용한다. GET
+코드해석 필요 
+
+먼저bcrypt 와 jwt 를 설치추가 
+app.js 에서 import authRouter from './router/auth.js';
+를 추가 
+
+app.use('/auth', authRouter); 을 추가해 주면된다. 
+
+라우터로 auth.js router에다가 controller와 연결시켜준다. 
+라우터에서는 사용자에게 전달받은 정보를 유효성 검사를 해야한다. singup 과 login 유효성 검사하는 것을 작성 
+허용하지않는 길이나 형식을 가진 것들이라면 먼저 걸러낼 수 있게끔하고 
+
+로그인에서는 사용자의 이름과 패스워드에서 유효성검사를 하여 미리 처리하도록 설정하고 이를 재활용하여 
+const validateSignup = { 
+...validateSignup //로그인할때 유효성검사(username 과 password) 검사
+이름과 email url 을 또 검사하도록한다.
+url은 필수로 있어야하는 데이터가 아니다. 없어도 된다.
+그래서 있다면
+body('url'). isURL() URL이 맞는지 유효성 검사를 하고
+    .withMessage('invalid URL')
+    .optional({nullable : true, checkFalsy : true}),
+validate,};  데이터가 없거나 텅텅빈 문자열이라면 허용할 수 있도록 작성한다. 
+
+이를 컨트록러에 위임을 하고 
+
+컨트롤러는 import * as userRepository from '../data/auth.js';
+
+userRepository 에서 사용자의 데이터를 사용하고 읽고하도록 사용자의 데이터를 찾고 쓰고 할것이다. 
+
+jwtSecretKey 나 만료와 salt 길이를 정의해 두었다. 이러한 설정은 서버코드에서 가지고 있으면 좋지 않기 때문에 configu.. 에서  자세히 다룰 것 
+
+sinup에서는 
+export async function signup(req,res){
+const {username, password,name, email , url } = req.body; // 리퀘스트 바디안에 있는 필요한 정보를 받아온다음에 
+const found = await userRepository.findByUsername(username); // 사용자가 가입하기를 원하는 username 이 우리 데이터베이스에 있는지 확인을 하고 
+if(found){
+return res.status(409),json({message : '${username} already exists'}) ; }  에러 메시지를 보내준다. 
+만약 안전하다면 
+const hashed = await bcrypt.hash(password , bcryptSaltRounds);
+사용자가 보낸 password를 해싱하고 
+사용자를 만들어진 데이터를 전달해준다. 
+
+repository 에서 사용자의 고유한 id 를 만들어주고 입력받은 데이터를 전달해주고 이 또한 전달해준다. 
+그리고 이를 통해서 토큰을 만들어낼 것이다.
