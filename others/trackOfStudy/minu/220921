@@ -1,0 +1,16 @@
+220921 공부
+
+* Do it! 리액트 네이티브 앱 프로그래밍
+- Typescript....
+- faker 패키지 // 가짜 데이터 패키지
+
+* React Hooks
+- useInput 
+// {... x} - spread operator
+- useTabs
+// 해당 훅을 활용하여 탭 필터링 만들면 될 듯!
+- useRef (focus와 비슷한 역할)
+- useNotification
+// permission 설정 필요
+// Firebase의 기능 중 일부 - https://velog.io/@kwonh/ReactNative-%ED%91%B8%EC%89%AC%EC%95%8C%EB%A6%BC-%EA%B3%B5%EC%8B%9D%EB%AC%B8%EC%84%9C-%EB%94%B0%EB%9D%BC%ED%95%98%EA%B8%B0-Firebase-Cloud-Messaging-react-native-firebase-notification-%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C
+// https://honeystorage.tistory.com/255 & https://honeystorage.tistory.com/306
