@@ -1,0 +1,74 @@
+220923 공부
+
+* React 복습 / Udemy - React Native 강의
+
+ - 데이터 리스트 렌더링하기
+ // 데이터 배열을 JSX 요소로 출력 하는 방법 ( goalList.props.map((goal) => {<list>{goal}</list>} )
+
+ - 이벤트 처리하기
+ // const NewGoal = () => {
+ // const addGoalHnadler = event => {
+ // event.preventDefault(); };
+ // return (
+ // onSubmit{addGoalHandler} )
+ // : 브라우저 기본값이 백엔드에 임의로 요청을 보내는 것을 방지
+
+ - 부모-자식 간의 연결
+ // 데이터를 거꾸로(자식->부모) 전달하는 작업에도 프로퍼티 사용
+
+ - 상태 관리하기
+ // useState ; 렌더링 시점을 알려줌(데이터의 변화에 따라)
+ // 상태를 관리하는 훅 함수는 모두 'use-' 의 이름을 지님
+ // push <-> concat // 인자로 주어진 배열이나 값들을 기존 배열에 합쳐서 새 배열을 반환
+ - 상태 더 자세히 살펴보기
+ // useState는 함수형 컴포넌트에서만 동작
+ // 최신 상태 스냅샷 - 상태 스냅샷을 업데이트 하는 함수
+ // 일반적인 코드는 전체 함수를 다시 호출, 리렌더링 하는 과정을 거침(과부화)
+ // const addNewGoalHandler = newGoal => {
+ // setCourseGoals(courseGoals.concat(newGoal));
+ // };
+ // 위 방법 대신 더 안전한, 효율적인 방법의 코드는 아래
+ // const addNewGoalHandler = newGoal => {
+ // setCourseGoals((prevCourseGoals) =>
+ // prevCourseGoals.concat(newGoal));
+ // };
+
+ - 사용자 입력 & 양방향 바인딩
+ // onChange & event.target.value
+ // TextInput 에 value 프로퍼티 사용 & enteredText 또한 useState로 상태 지정
+ - 마무리
+
+* Javascript 복습 / Udemy - React Native 강의
+ - 객체: 프로퍼티 & 메서드
+ - 배열 & 배열 메서드
+ - 배열, 객체 & 참조 형식
+ - Spread 연산자 & Rest 연산자
+ // spread operator
+ // const copiedArray = [...hobbies]; 
+ // "" hobbies.slice();
+ // 복사본
+ // const copiedArray = [hobbies]; 
+ // 원본 그대로 가져온 것
+
+ // rest operator
+ // const toArray = (...args) => {
+ // return args; };
+ // console.log(toArray(1,2)); console.log(toArray(1,2,3,4,5 ...)); 
+ // rest operator는 argument의 개수가 무관
+
+ - 구조 분해하기(destructuring) 
+ // const person = {
+ // name: 'Max',
+ // age: 29,
+ // greet() {
+ // console.log('Hi, I am ' + this.name); } };
+
+ // const printName = (personData) => {
+ // console.log(personData.name);}
+ // 구조 분해 적용
+ // const printName = ({person}) => {
+ // console.log(name); }
+ // printName(person);
+
+ // const {name, age } = person;
+ // console.log(name, age);
