@@ -4,7 +4,56 @@
 
 * JS 마무리 / React Native - Udemy
  - 비동기 코드 & 프로미스
- - 마무리
+ // 실행순서 : 동기 코드 -> 비동기 코드
+ // promise : 자바스크립트 비동기 처리에 사용되는 객체
+ // (https://joshua1988.github.io/web-development/javascript/promise-for-beginners/)
+ // fetchData().then(text => {
+ //  console.log(text); return fetchData();}).
+ // then(text2 => {
+ // console.log(text2); });
+ - 마무리 (async, await)
+ // async : promise 를 간편하게 대체할 수 있는 방법
+ // await : async가 있는 함수 내 동기적으로 동작할 수 있도록 도움
+ // ex) async-await 사용
+ // async function getApple() { 
+ // await delay(3000);
+ // return 'Apple'; }
+ 
+ // ex) promise 사용
+ // function getApple() {
+ // return delay(3000)
+ // .then(() => 'Apple' ); } 
+
+ // ex) promise 사용2
+ // function pickFruits() {
+ // return getApple().then(apple => {
+ // return getBanana().then(banana => `${apple} + ${banana}`); }); }
+ // pickFruits().then(console.log);
+ // 해당 함수는 콜백지옥과 유사한 구조
+ 
+ // async로 해결
+ // async function pickFruits() {
+ // 아래 프로미스들이 들어갈 자리
+ // const apple = await getApple();
+ // const banana = await getBanana();
+ // return `${apple} + ${banana}`;
+ // pickFruits().then(console.log);
+
+ // apple과 banana는 독립적인 구조이므로 서로 기다릴 필요가 없음
+ // const applePromise = getApple();
+ // const bananaPromise = getBanana();
+ // 위처럼 각 기능에 맞게끔 프로미스를 생성(생성되자마자 실행 되는 프로미스 특징 이용)
+ 
+ // 위의 코드를 깔끔하게 작성 - useful Promise APIs
+ // all API - 프로미스 배열을 전달하게 되면 모든 프로미스들이 병렬적으로 다 받아질 때까지 모아주는 역할
+ // function pickAllFruits() {
+ // return Promise.all([getApple(), getBanan()]).then(fruits => fruits.join(' + ') ); }
+ // pickAllFruits().then(console.log);
+
+ // race API - 먼저 전달된 리턴 값 하나만을 출력
+ // function pickOnlyOne() {
+ // return Promise.race([getApple(), getBanana()]); }
+ // pickOnlyOne().then(console.log);
 
 * 학교수업 복습
  - 머신러닝 
