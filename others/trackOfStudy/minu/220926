@@ -1,0 +1,28 @@
+220926 공부
+
+* RN
+- styling
+ 1. justifyContent(부모 축) <-> alignItems(반대 축)
+ 2. margin(외부) <-> padding(내부)
+
+- event
+ 1. 입력 - 추가 : onChangeText & onPress & useState
+ ex) const [eneteredText, setEnteredText] = useState('');
+
+ function goalInputHandler(enteredText) {
+ setEnteredText(enteredText);
+ }
+
+ fucntion addGoalHandler() {
+ console.log(enteredGoalText);
+ }
+
+ return(
+ ~~
+ <TextInput onChangeText={goalInputHandler} />
+ <Button onPress={addGoalHandler} /> // *onClick 은 web에서만*
+
+* Firebase 리서치
+* UI디자인 (반응형) 리서치
+* 부트캠프 리서치
+ - SSAFY
