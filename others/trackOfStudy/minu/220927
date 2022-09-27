@@ -1,0 +1,12 @@
+220927 공부기록
+
+* 수업 ㅜ..
+
+* SSAFY 추가 조사
+* 머신러닝 강의
+* RN 
+ - Todo-list 의 할 일 처럼 목록의 일부로 출력되는 개별 항목에는 항상 key 프로퍼티가 존재해야 된다(구체적인 값을 식별하는 고유 값)
+ ex) {courseGoals.map(goal => (
+          <Text key={goal.id}>{goal}</Text>
+        ))}
+ - iOS & Android 스타일링의 차이점
