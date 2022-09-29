@@ -1,0 +1,30 @@
+220928 공부기록
+
+* SSAFY 코테
+- 백준 2669번
+
+* 파이썬 노트
+ - for _ in range() - "I don't care"
+ // https://gaga.tistory.com/136
+ - 입출력 정리
+ // https://intrepidgeeks.com/tutorial/clean-up-background-python-io
+ 
+*side note 
+// 처음 평면 배열을 만드는 수식 질문
+
+* RN / udemy 
+ - ScrollView 
+ // 부모 View 안으로 넣을 것
+ // 모든 자식을 렌더링
+ - FlatList (<-> ScrollView) @@@ 리뷰 필요
+ // 모든 자식을 렌더링하는 ScrollView의 단점을 개선
+ // 필요한 사항만 렌더링
+ // data 프로퍼티 - 목록에서 출략할 데이터를 저장
+ // renderItem 프로퍼티 - 개별 데이터 항목 렌더링 하는 방법을 FlatList에 지시하는 함수를 값으로 가짐 // 함수는 자동으로 개별 항목을 매개변수로 받음
+ - 컴포넌트를 작은 컴포넌트로 쪼개기
+ - 프로퍼티 활용하기
+ // App.js 에서 사용하는 컴포넌트에 필요한 데이터는 Props를 활용하여 데이터 전달
+ // = 커스텀 컴포넌트
+ - "Goal Input" 컴포넌트로 작업하기 @@@ 리뷰 필요
+ - Pressable 컴포넌트로 누르는 이벤트 처리하기
+ // Touchable ~을 old version
