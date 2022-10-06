@@ -1,0 +1,30 @@
+221005 공부
+
+* 찬섭 피드백
+- 분업 ok
+- 로그인 인증방식 // json token
+- 랩실에 방문 // 리액트 네이티브만의 컴포넌트 구조 설명
+- db설계시 차이가 많이 없는 부분은 같은 테이블 타입 0 - 1 로만 차이놓고 사용 권장
+
+* 개념 정리 영상
+- 함수, API, SDK, OpenAPI
+- 앱개발 할 때 알았더라면...!
+ - **MVP(최소기능제품)
+ - 광고
+
+* RN
+- 섹션 3 // 디버깅 방법
+- 섹션 5 // 사용자 인터페이스 구축
+ - 동적 너비 설정
+  ' maxWidth : '80%' - 부모 컨테이너의 %
+ - Dimension API
+  ' const deviceSize = Dimensions.get('window').width or height
+  => padding : deviceSize < 450 ? 12 : 24
+  // 삼항 연산자 활용
+ - 이미지 크기 조정하기
+ - 화면 회전
+  ' Android에서 가로모드 막기 // https://velog.io/@dody_/React-Nativereact-native-iOS-Andriod-%EA%B0%80%EB%A1%9C%EB%AA%A8%EB%93%9C-%EB%A7%89%EC%95%84%EB%B2%84%EB%A6%AC%EA%B8%B0-%EC%84%B8%EB%A1%9C%EB%AA%A8%EB%93%9C%EB%A7%8C-%EC%A7%80%EC%9B%90%ED%95%98%EA%B8%B0
+  ' app.json / "orientation"(방향) : "portrait"(세로) 고정 // expo 에서만
+ - KeyboardAvoidingView
+ // 보이지 않는 부분 => ScrollView 처리
+ - Platform API
