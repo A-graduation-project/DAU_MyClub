@@ -1,0 +1,14 @@
+221006 공부
+
+* RN
+ - CRUD 연습
+ // ScrollView - 요소가 적으면 적합 // 전체 렌더링
+ // FlatList - 요소가 많아질 떄 // 스크롤 가능 목록만 렌더링 // *key 사용방법 - 객체
+ // 프로퍼티 다루기 // https://goddaehee.tistory.com/300
+ - 리서치 
+ // copy url => clipboard
+
+- Error: Text strings must be rendered within a <Text> component
+- Text - key - unique
+- FlatList
+- 프로퍼티 
