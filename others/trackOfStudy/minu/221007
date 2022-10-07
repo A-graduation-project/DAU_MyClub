@@ -1,0 +1,15 @@
+221007 공부
+
+* RN
+ - Create 부분 복습 완료
+  ' 여전히 아리까리한 부분 하나 존재 props 사용 방법
+ - Delete 부분 복습 완료
+ // bind() 함수 // https://www.youtube.com/watch?v=wOiteGyan-I&ab_channel=%EC%83%9D%ED%99%9C%EC%BD%94%EB%94%A9
+ // bind(this 대신 영구적으로 변경 할 값, 인자(argument))
+ - 모달 창 연습
+ // 모달 창을 활용하여 페이지 생성을 줄이자
+ // 모달 창 여닫기
+ 
+* 공부예정
+ - 카메라 접근 및 사용 실습
+ - Axios
