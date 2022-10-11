@@ -1,0 +1,70 @@
+221011 공부
+
+* 백준 2309
+
+* RN
+- 우성이랑 메인페이지 / 로그인 / 회원가입 실습 및 간단 CSS
+- 내일까지 오류해결 및 세부 CSS 수정
+
+* Git/Github // 드림코딩 - https://www.youtube.com/watch?v=Z9dvM7qgN9s&t=14s&ab_channel=%EB%93%9C%EB%A6%BC%EC%BD%94%EB%94%A9
+
+- UI 어플리케이션(Source Tree)
+// EEMinu (username)
+
+- 최초 설정 
+// git config --global user.name "Minu"
+// git config --global user.email "wlwhsxz@gmail.com"
+// git config --global core.autocrlf true // carreiage-return 자동 조정
+
+- git 공부 포인트
+// git config ... ~
+// git commit ... ~
+// git add ... ~
+// git 이후에 오는 두 번째 명령어에 따라 큰 범주가 나뉨
+
+- git 사용을 위한 터미널 명령어는 필요한 만큼 스스로 학습!
+// ex) mkdir ...~
+// ex) cd ...~
+
+- git config --global alias.st status 
+// status 를 st로 축약해서 쓰고싶을 때
+
+- git config --h 
+// 명령어 확인
+
+*git workflow
+1. working directory
+// untracked ( unmodified or 새로 생긴 파일) <-> tracked(add 이 후 modified 된 경우)
+2. staging area(git add 이 후) 
+// git rm --cached <file> // unstage( -> working area ) // untracked
+3. .git directory 
+(local) (push)<->(pull) .git directory (remote - cloud 서버)
+
+*.gitignore
+- echo *.log > .gitignore // ~.log로 된 파일들은 .gitignore 파일에 등록함으로써 track / push 에서 제외
+
+cltr + k : git bash 창 클리어
+
+*git diff
+// 변경 내용 세부 사항
+ - cat <file>
+ - git diff --staged // staging area 내용 확인 가능
+ - git config --global -e // 편집기(vscode) 열기
+ - git difftool (vscode에서 확인 가능)
+ + git difftool --staged // ""
+
+*git commit 
+// commit 템플릿 이용가능
+// 템플릿에 Title, Description 작성
+ - git log // commit 변경 내용 확인
+ - git commit -am "x commit" // 모든 변경을 한꺼번에 commit 할 경우
+
+*commit 단위
+commit = history
+// 기능별, 작은 단위로 나누어 commit, 저장 생활화
+ex) instalise project / Add LoginService module / Add UserRepository module ...
+
+// *버그 Fix가 담긴 내용의 commit시 내용에 해당하는 부분만 변경 후 commit 진행할 것*
+
+*SourceTree 사용법
+ 
