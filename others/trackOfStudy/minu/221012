@@ -1,0 +1,42 @@
+221012 공부
+
+* RN
+1. 메인페이지 수정
+ - 하단 탭 추가 // 완료 // 이전 코드 참고하여 문제 해결
+ - navigation.push 수정 // 익명 함수 -> useCallback() 함수로 교체
+
+2. 홍보게시판 페이지 추가
+ - 글 작성 페이지 추가
+  - 작성 완료 시, 홍보게시판 내 게시글 목록에 렌더링
+  - 컴포넌트 분리, prop 사용으로 다른 페이지 렌더링
+
+3. 화면 간 데이터 전달을 위해 라우트 매개변수로 작업하기 / udemy
+ // https://www.udemy.com/course/react-native-2022-ko/learn/lecture/33259954#overview
+ - route prop or useRoute
+ + 지출 리스트 출력하기 / udemy
+ + 입력된 데이터로 작업하기 / udemy 
+ // 위 내용들 내일 복습 예정
+
+4. Axios 강의
+ - '프론트에서 서버에 데이터 요청하는 방법'
+
+
+* 개념공부
+- Usecallback() // 별코딩(youtube) - https://www.youtube.com/watch?v=XfUF9qLa3mU&t=827s&ab_channel=%EB%B3%84%EC%BD%94%EB%94%A9
+ : memoization 기법 중 하나로 컴포넌트 성능의 최적화를 위해 사용
+ - memoizataion? :
+ 자주 사용되는 값을 받아오기 위하여 반복 계산하기 보다 이전에 계산된 값을 cashing 해두어 재사용 하는 것
+ - usecallback? 
+ : 인자로 전달한 callback 함수 그 자체를 memoization 하는 행위
+ ex) const someFunction = useCallback( () => {
+ console.log(`someFunc : ${number}`);
+ return;
+ }, [ ] );
+ - 렌더링 : Component 함수 호출 -> 해당 함수 내 모든 내부 변수 초기화
+ + 자바스크립트에서 객체가 변수에 할당될 때 바로 들어가는 것은 아니다.
+ 객체의 크기가 상대적으로 크기 때문에 메모리 공간에 저장이 되고,
+ (중요)변수는 해당 주소를 참조하게 된다.
+ 
+
+* 개인공부
+- 컴퓨터구조
