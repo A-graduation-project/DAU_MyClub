@@ -1,0 +1,29 @@
+221013 공부
+
++ 꿀팁
+- 키보드로 커서 이동
+// home / end 버튼:
+// 해당 줄 맨 앞 / 끝으로 이동
+// ctrl + home / end:
+// 해당 문서 맨 앞 / 끝으로 이동
+
+* RN
+- 섹션9: 사용자 입력 처리하기 / udemy 
+
+ - 커스텀 입력 컴포넌트 구축
+ // Input 컴포넌트 분리 // 재활용을 위함
+
+ - 전반적인 양식 생성하기
+ // Input 내 label 및 textInputConfig내 property 설정
+
+ - 양식 입력 요소 구성하기
+ //textInputConfig내 property 설정
+ 
+ - 스타일링(건너띔)
+
+ - 보편적인 방식으로 사용자 입력 처리하기
+ // inputChangeHandler로 묶어서 관리 및 입력 처리
+ // bind() 함수 사용 // 복습 필요
+
+ - 양식 상태 & 제출 관리하기
+
