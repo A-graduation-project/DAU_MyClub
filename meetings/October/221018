@@ -1,0 +1,22 @@
+221018 회의록
+
+* PPT 발표 취합 및 수정
+
+- 프론트
+ - 앱 이름
+ - 로고 디자인 문의 예정
+ // 임시 로고 5안
+ // 로고 제작 사이트
+ // https://ko.wix.com/logolangdesktop/ko-logo-design?utm_source=google&utm_medium=cpc&utm_campaign=1663618739^66835122369&experiment_id=%2B%EB%94%94%EC%9E%90%EC%9D%B8%20%2B%EB%A1%9C%EA%B3%A0^b^421135019641^&gclid=Cj0KCQjwnbmaBhD-ARIsAGTPcfXq_NbKkfyUPnOk7or_fLLm014qyaBYASWAcarzJQGF9vWS0SQuhTAaAjc5EALw_wcB
+
+** 알아보기
+// npm suneditor-react
+// react-blog-writer npm
+
+* 공유내용
+- 백
+ - 행사일정
+ // 구글 다이어리 // npm editor(?)
+ // 우선적으로 공지사항으로 변경하여 text로 처리
+ - 리뷰
+ // DB 설계 중
