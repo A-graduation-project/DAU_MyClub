@@ -1,0 +1,15 @@
+221101 공부
+
+* RN
+- 반응형 사이즈
+ - error1 : Invalid hook call. Hooks can only be called inside of the body of a function component
+ => 잘못된 import 를 통한 함수를 사용
+ // import {
+  responsiveScreenHeight,
+  responsiveScreenWidth,
+  responsiveFontSize,
+} from 'react-native-responsive-dimensions';
+ 사용하여 변화되는 입력 값에 따른 크기 반환
+
+- Stlyed-Component 조사
+https://jiny-dongle.tistory.com/13
