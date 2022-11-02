@@ -1,0 +1,18 @@
+- *AsyncStorage를 통한 로그인 기록 확인
+
+- Working with Screen Dimensions
+import {
+  responsiveScreenHeight,
+  responsiveScreenWidth,
+  responsiveScreenFontSize
+} from "react-native-responsive-dimensions";
+
+- 새로운 작업 환경
+
+- Github branch 생성 & 연동
+ // https://backlog.com/git-tutorial/kr/stepup/stepup7_3.html
+ * Github 연동
+ - Github 설정 // Protect matching branches
+  - Require approvals
+  - Require approval from someone other than the last pusher
+ 
