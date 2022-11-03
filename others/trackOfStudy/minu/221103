@@ -1,0 +1,26 @@
+221103 작업 일지
+
+* RN
+- 코드 깃허브에 업로드
+ - git pull origin <브랜치명> --rebase
+ // 참조하는 main 브랜치에 변화가 생겨 나의 branch에 반영해야할 때 사용
+ // main에서 받아온 내용 뒤에 나의 commit을 옮긴다.
+ <-> pull -merge
+ // 끌어와서 합친다.
+
+- Error: ENOENT: no such file or directory, lstat 'C:\Users\Minu\Desktop\RN\ClubInMyPocket\FrontEnd\android\node_modules\@bam.tech\react-native-make'
+- 앱 아이콘 변경 (https://kgu0724.tistory.com/241, https://velog.io/@dody_/React-Native-%EC%95%B1-%EC%95%84%EC%9D%B4%EC%BD%98-%EB%B0%94%EA%BE%B8%EA%B8%B0)
+- 아이콘 적용하기 (react-native-vector-icons)
+// 참고 - https://sang12.co.kr/247/React-Native-Bottom-Tab-Icon-%EC%A0%81%EC%9A%A9%ED%95%98%EA%B8%B0
+ - npm install --save react-native-vector-icons
+ - import Icon from 'react-native-vector-icons/AntDesign';
+ - android/app 디렉터리 안 build.gradle 파일 하단에 아래 코드를 추가
+ // apply from: file("../../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesAppBuildGradle(project)
+ // apply from: file("../../node_modules/react-native-vector-icons/fonts.gradle")
+ // AntDesign 적용엔 필요없었음 - project.ext.vectoricons = [iconFontNames: [ 'Ionicons.ttf', 'FontAwesome.ttf' ]]
+ - color : 	#ffdab9 // peachpuff
+ // https://developer.mozilla.org/ko/docs/Web/CSS/color_value
+
+ - Bottomtab 수정
+ // 하단 탭이 Root Navigation 역할을 수행하여 모든 페이지에 보여야 하는데 다른 페이지로 이동 시 사라짐
+ // 새로운 스택 구조로 오류 해결 => BottomTab - (HomeStack, MyPageStack)
