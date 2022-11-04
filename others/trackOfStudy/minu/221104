@@ -1,0 +1,25 @@
+221104 작업 내용
+
+- Icon Component
+ // import Icon from 'react-native-vector-icons/Ionicons';
+
+- 이미지 적용
+// https://iagreebut.tistory.com/148
+ - local
+ // assets/image/ 경로에 저장
+ // import {Image} from 'react-native';
+
+-- 여기까지 진행 --
+ 
+ - 서버 // 추후 진행 예정
+
+ - 이미지 resize
+ // https://github.com/bamlab/react-native-image-resizer
+
+
+ - font추가 // 진행 예정
+ // https://dev-yakuza.posstree.com/ko/react-native/react-native-custom-font/
+ android/app/src/main/assets/fonts 폴더를 생성한 후 다운로드 받은 폰트 파일을 추가
+
+ - styled-component // 진행 예정
+ // https://velog.io/@ikaret/React-Native-%EC%97%90%EC%84%9C-Styled-Component-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0
