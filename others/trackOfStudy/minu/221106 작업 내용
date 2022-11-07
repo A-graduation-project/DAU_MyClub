@@ -1,0 +1,10 @@
+221106 작업 내용
+
+- React Native Dropdown Select List (https://www.youtube.com/watch?v=brZDOAxc3BI&t=165s&ab_channel=DanishAmin)
+// npm install react-native-dropdown-select-list
+// icons - https://materialdesignicons.com/
+
+* Side Note
+- 로그인화면 참고 - https://byein.tistory.com/m/112
+- react-native-paper (https://callstack.github.io/react-native-paper/list-accordion.html)
+// npm i react-native-paper // 가장 큼
