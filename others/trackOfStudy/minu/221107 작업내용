@@ -1,0 +1,15 @@
+221107 작업 내용
+
+- 단과대학 선택 화면 마무리 (react-native-dropdown-select-list)
+ - 단과 대학 / 학과 / 동아리 dropdown menu
+ // 단과대학 선택 -> 학과 선택 -> 동아리 선택 (dependent menu structure)
+ // 동아리 선택 시 해당 동아리로 페이지로 이동
+
+- 동아리 화면 필터탭 (react-native-tab-view)
+ // npm install react-native-tab-view
+ // npm install react-native-pager-view
+
+- 사진 선택 라이브러리(보류) (react-native-image-picker)
+ // https://velog.io/@hke2/RN-%EC%82%AC%EC%A7%84-%EC%84%A0%ED%83%9D-%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC-react-native-image-picker
+ // npm install react-native-image-picker
+ // import {launchCamera, launchImageLibrary} from 'react-native-image-picker';
