@@ -1,0 +1,19 @@
+221108 작업 내용
+
+- react-native-image-picker 
+blog - (https://velog.io/@hke2/RN-%EC%82%AC%EC%A7%84-%EC%84%A0%ED%83%9D-%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC-react-native-image-picker)
+youtube - (https://www.youtube.com/watch?v=mD59nVo-ZSA&ab_channel=TechwithMuskan)
+// android/app/src/main/AndroidManifest.xml 수정
+// <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
+// import { launchCamera, launchImageLibrary } from 'react-native-image-picker';
+// import {PermissionsAndroid} from 'react-native'; // 사용자 권한
+
+- react-native-image-crop-picker
+- react-native-image-resizer
+// 위 두 모듈은 이미지 용량을 프론트에서 제한함으로써 서버 용량 낭비를 최소화
+
+- react-native datetimepicker
+// npm install @react-native-community/datetimepicker --save
+// import DateTimePicker from '@react-native-community/datetimepicker';
