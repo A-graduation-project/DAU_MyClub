@@ -1,0 +1,36 @@
+221109 작업 내용
+
+* 작업 순서별 배치 (top - down)
+
+- 글쓰기 기능(다수 공통) // 진행중
+ - 사진 첨부(다수 공통)
+
+- 사진 첨부
+ - 사진 촬영
+ - 촬영 이미지 크롭
+ - 이미지 미리보기
+ - 이미지 저장 & 등록
+// react-native-image-picker
+
+- 문의 페이지
+
+- 행사일정 페이지
+ - 캘린더
+// npm install --save react-native-calendars
+// https://github.com/wix/react-native-calendars#agenda
+// https://www.youtube.com/watch?v=HF5qgqQRCWA&ab_channel=JonasGr%C3%B8ndahl
+// 
+
+ - 참고
+ // 블로그 - https://eddie-rody.tistory.com/47
+ // 블로그 - https://devbksheen.tistory.com/entry/React-Native-%EB%8B%AC%EB%A0%A5-%EA%B8%B0%EB%8A%A5-%EA%B5%AC%ED%98%84%ED%95%98%EA%B8%B0
+ - (특정 날짜)입력 처리 
+ // https://www.udemy.com/course/react-native-2022-ko/learn/lecture/33260064#notes
+
+* 예정
+- 활동기록
+ - 게시글
+  - date-time-picker // date 선택 요소로 제공
+  - title
+  - 사진첨부(동아리 안내 공통 component)
+  - 작성 완료 후 렌더링
