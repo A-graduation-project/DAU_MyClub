@@ -1,0 +1,15 @@
+221110 작업 내용
+
+- 우성 / 성혁 support guideline 제시
+
+- 글 작성
+
+ - 날짜 형식 변경
+ - utility/date.js
+ // 
+export function getFormattedDate(date) {
+  return `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`;
+}
+ //
+
+... so on
