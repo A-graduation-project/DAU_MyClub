@@ -1,0 +1,11 @@
+221111 작업 내용
+
+- 글쓰기 버튼 기능
+ - Pressable style={({pressed}) => pressed && styles.pressed }
+// pressed가 참이면 && 이후 실행
+// 거짓이면 동작 x
+ - 라우트 파라미터 
+
+ - const isDeleting = !!editedAdPostID;
+ // 거짓 값은 false로 전환
+ // 참 값은 true로 전환
