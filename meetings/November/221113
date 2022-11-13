@@ -1,0 +1,13 @@
+221113 작업 내용
+
+- 다이어리 앱 만들기 참고
+// https://eddie-rody.tistory.com/47
+
+- 로그인 JWT 인증 / 비동기 스토리 참고
+// https://www.youtube.com/watch?v=QMUii9fSKfQ&ab_channel=PradipDebnath
+
+- Context API로 전역 상태관리
+
+- recoil
+
+- db연결
