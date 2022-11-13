@@ -1,0 +1,6 @@
+221112 작업 내용
+
+- 다수 입력 상태 관리
+useState를 객체화, title, content, date 등을 받기
+
+// 
