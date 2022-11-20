@@ -1,0 +1,127 @@
+프로젝트 작업내용 기록
+
+참고 - https://thebook.io/080236/ch08/05/01-01/
+
+221116
+ 
+- 프로젝트 Github 업로드
+ - 각 기능별 commit & push 진행
+ - dependencies 작성
+ - 폴더 구조 작성
+
+
+- npm vs yarn // yarn
+// 속도 & 안정성
+// 패키지 설치 속도가 더 빠르고, 패키지 설치과정에서 패키지가 code를 running 하지 않도록 하여 더 보안상 안전
+// 또한, 같은 package.json 에 의존하는 두개의 서로 다른 환경이 서로 다른 버전의 패키지 의존성을 가지는 것을 방지하기 위해, 버전의 range 가 아닌, 정확한 버전을 명시한 yarn.lock 파일을 사용
+
+- react-native-calendars 설치 시 6 vulnerabilities (5 low, 1 high)
+// npm audit fix --force 으로 우선 조치
+
+*** Error 
+- Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: undefined. You likely forgot to export your component from the file it's defined in, or you might have mixed up default and named imports.
+// 수정 전 : import SelectList from 'react-native-dropdown-select-list';
+// 수정 후 : import { SelectList } from 'react-native-dropdown-select-list';
+// 이 차이 때문에...... 해당 문제 발생 꼬박 24시간 고생
+
+
+*** build.gradle 수정
+
+path : android/app/build.gradle - 최하단
+
+project.ext.vectoricons = [
+    iconFontNames: [ 'MaterialIcons.ttf' ]
+]
+
+apply from: "../../node_modules/react-native-vector-icons/fonts.gradle"
+
+*** index.js 수정
+
+221117
+
+- Firebase 연동
+1. android 연동 진행 시 디버그 서명 인증서 SHA-1은 프로젝트 경로에서 다음 명령어를 입력해 확인
+// keytool -J"-Duser.language=en" -list -v -alias androiddebugkey -keystore ./android/app/debug.keystore
+
+2. google-services.json 파일을 다운로드해 android/app 경로에 저장
+
+3. Firebase SDK를 추가
+https://firebase.google.com/docs/android/setup 참고
++
+path : android/app/build.gradle
+```
+defaultConfig {
+  applicationId "com.publicgalleryjohndoe"
+  minSdkVersion rootProject.ext.minSdkVersion
+  targetSdkVersion rootProject.ext.targetSdkVersion
+  versionCode 1
+  versionName "1.0"
+  multiDexEnabled true // 추가
+}
+```
+
+4. Firebase 라이브러리 설치
+@react-native-firebase/app 
+@react-native-firebase/auth 
+@react-native-firebase/firestore 
+@react-native-firebase/storage
+
+
+
+
+
+*** AndroidManifest.xml 수정
+path: android/app/src/main/AndroidManifest.xml
+
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+  package="com.clubinmypocket">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" /> // 추가
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> // 추가
+
+    (...)
+
+https://thebook.io/080236/ch07/04/04-03/
+
+221118
+
+- 로그인
+ - firebase 연동
+ - firestore 사용
+// 30일이 지난 뒤 진행할 경우 데이터 읽고 쓰기가 제대로 작동하지 않을 텐데요. 이 경우 Cloud Firestore의 규칙 탭에서 다음과 같이 규칙을 수정한 뒤 게시
+```
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /{document=**} {
+      allow read, write: if true;
+    }
+  }
+}
+```
+- 회원가입
+// 로그인에서 진행 막힘 ㅜㅜ
+// 사진첨부로
+
+- 동아리 기능
+ - 동아리 안내
+  - 사진 첨부
+   - 카메라/앨범 모달
+   // react-native-image-picker + 수정 필요
+  - 소개글
+
+*** 권한 추가
+android/app/main/AndroidManifest.xml
+<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
+
+221120 
+
+우성이 반응형 expo 테스트
+https://kentakang.com/156
+expo start --tunnel
+
+- 활동기록
+ - 사진기록용 글작성
